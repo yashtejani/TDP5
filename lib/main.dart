@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/journey_planner.dart';
-import 'package:project/mock/mock_bus_list.dart';
-
-import 'model/bus_list_item.dart';
+import 'package:project/screens/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<BusListItem> mockBusList = MockBusList.FetchAny();
-    return MaterialApp(title: 'Bus replacing train', home: JourneyPlanner(mockBusList));
+    return const MaterialApp(title: 'Bus replacing train', home: Dashboard());
   }
 }
-
-

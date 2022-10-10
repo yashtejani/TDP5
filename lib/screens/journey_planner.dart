@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'model/bus_list_item.dart';
+import '../model/bus_list_item.dart';
 
 class JourneyPlanner extends StatelessWidget {
   final List<BusListItem> busList;
