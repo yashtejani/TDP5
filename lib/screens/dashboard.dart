@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:project/screens/journey_planner.dart';
 import 'package:project/mock/mock_bus_list.dart';
+<<<<<<< Updated upstream
 import 'package:project/widgets/circle_gradient_icon.dart';
 import 'package:project/widgets/task_group.dart';
 import 'package:project/core/res/color.dart';
+=======
+import '../widgets/searchbar.dart';
+import '../widgets/screen_display.dart';
+import '../model/bus_list_item.dart';
+import 'package:project/widgets/circle_gradient_icon.dart';
+
+>>>>>>> Stashed changes
 
 import '../model/bus_list_item.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
-
   @override
   Widget build(BuildContext context) {
     final List<BusListItem> mockBusList = MockBusList.FetchAny();
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text("Dashboard"),
           elevation: 0,
@@ -39,7 +47,9 @@ class Dashboard extends StatelessWidget {
             ),
           ),
         ),
+
         body: Column(
+<<<<<<< Updated upstream
           children: [
             SingleChildScrollView(
               child: Container(
@@ -79,23 +89,97 @@ class Dashboard extends StatelessWidget {
                   ],
                 ),
               ),
+=======
+          children: <Widget>[
+            const SizedBox(
+              height: 20,
+            ),
+            const SearchBar(),
+            const SizedBox(
+              height: 20,
+            ),
+            WidgetButton(
+              title: "Journey Planner",
+              color: Colors.blue,
+              icon: Icons.route_outlined,
+              screen:  JourneyPlanner(mockBusList),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train',
+                        home: JourneyPlanner(mockBusList))));
+              },
+            ),
+            WidgetButton(
+              title: "Update Bus Information",
+              color: Colors.orange,
+              icon: Icons.departure_board_outlined,
+              screen:  JourneyPlanner(mockBusList),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train',
+                        home: JourneyPlanner(mockBusList))));
+              },
+            ),
+            WidgetButton(
+              title: "View Report",
+              color: Colors.green,
+
+              icon: Icons.library_books_sharp,
+              screen:  JourneyPlanner(mockBusList),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train',
+                        home: JourneyPlanner(mockBusList))));
+              },
+            ),
+            WidgetButton(
+              title: "Notifications",
+              color: Colors.pink,
+
+              icon: Icons.notification_add,
+              screen:  JourneyPlanner(mockBusList),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train',
+                        home: JourneyPlanner(mockBusList))));
+              },
+            ),
+            const SizedBox(
+              height: 20,
+>>>>>>> Stashed changes
             ),
             Positioned(
               bottom: 30,
               // left: 100.w / 2 - (70 / 2),
               right: 30,
               child: CircleGradientIcon(
+<<<<<<< Updated upstream
                 color: Colors.pink,
                 onTap: () {},
                 size: 60,
                 iconSize: 30,
                 icon: Icons.add,
+=======
+                color: Colors.indigo,
+                onTap: () {Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train',
+                        home: JourneyPlanner(mockBusList))));},
+                size: 60,
+                iconSize: 30,
+                icon: Icons.menu,
+>>>>>>> Stashed changes
               ),
             )
           ],
         ));
   }
 
+<<<<<<< Updated upstream
   Row _bottomHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -203,3 +287,9 @@ class Dashboard extends StatelessWidget {
     );
   }
 }
+=======
+
+  }
+
+
+>>>>>>> Stashed changes

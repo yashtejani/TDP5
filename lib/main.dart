@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Bus replacing train', home: Dashboard());
+    return const MaterialApp(
+        title: 'Bus replacing train', home: Dashboard());
   }
 }

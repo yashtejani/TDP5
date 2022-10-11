@@ -65,9 +65,15 @@ class AppColors {
       begin: Alignment.bottomLeft,
       end: Alignment.topRight,
       colors: [
+<<<<<<< Updated upstream
         color[400]!,
         color[300]!,
         color[200]!,
+=======
+        color[500]!,
+        color[400]!,
+        color[300]!,
+>>>>>>> Stashed changes
       ],
       stops: const [
         0.4,
