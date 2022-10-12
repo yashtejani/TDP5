@@ -7,11 +7,11 @@ class JourneyPlanner extends StatelessWidget {
 
   const JourneyPlanner(this.busList, {super.key});
 
+
   @override
   Widget build(BuildContext context) {
     final currentLocationController = TextEditingController();
     final destinationController = TextEditingController();
-
     return Scaffold(
         appBar: AppBar(
           title: const Text('Journey planner'),
