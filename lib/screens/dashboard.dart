@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/addBusDetails.dart';
 import 'package:project/screens/journey_planner.dart';
 import 'package:project/mock/mock_bus_list.dart';
+import 'package:project/screens/updateBusDetails.dart';
 import 'package:project/widgets/circle_gradient_icon.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/screen_display.dart';
 import '../model/bus_list_item.dart';
-
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -38,9 +39,8 @@ class Dashboard extends StatelessWidget {
             ),
           ),
         ),
-
         body: Column(
-            children: <Widget>[
+          children: <Widget>[
             const SizedBox(
               height: 20,
             ),
@@ -52,32 +52,41 @@ class Dashboard extends StatelessWidget {
               title: "Journey Planner",
               color: Colors.blue,
               icon: Icons.route_outlined,
-              screen:  JourneyPlanner(mockBusList),
+              screen: JourneyPlanner(mockBusList),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
                         title: 'Bus replacing train',
                         home: JourneyPlanner(mockBusList))));
+              },
+            ),
+            WidgetButton(
+              title: "Add Bus Information",
+              color: Colors.orange,
+              icon: Icons.departure_board_outlined,
+              screen: AddBus(),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train', home: AddBus())));
               },
             ),
             WidgetButton(
               title: "Update Bus Information",
               color: Colors.orange,
               icon: Icons.departure_board_outlined,
-              screen:  JourneyPlanner(mockBusList),
+              screen: UpdateBus(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner(mockBusList))));
+                        title: 'Bus replacing train', home: UpdateBus())));
               },
             ),
             WidgetButton(
               title: "View Report",
               color: Colors.green,
-
               icon: Icons.library_books_sharp,
-              screen:  JourneyPlanner(mockBusList),
+              screen: JourneyPlanner(mockBusList),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
@@ -88,9 +97,8 @@ class Dashboard extends StatelessWidget {
             WidgetButton(
               title: "Notifications",
               color: Colors.pink,
-
               icon: Icons.notification_add,
-              screen:  JourneyPlanner(mockBusList),
+              screen: JourneyPlanner(mockBusList),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
@@ -107,21 +115,18 @@ class Dashboard extends StatelessWidget {
               right: 30,
               child: CircleGradientIcon(
                 color: Colors.indigo,
-                onTap: () {Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner(mockBusList))));},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MaterialApp(
+                          title: 'Bus replacing train',
+                          home: JourneyPlanner(mockBusList))));
+                },
                 size: 60,
                 iconSize: 30,
                 icon: Icons.menu,
               ),
             )
           ],
-        )
-    );
+        ));
   }
 }
-
-
-
-
