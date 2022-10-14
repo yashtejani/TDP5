@@ -1,4 +1,5 @@
-var User = require('../models/user')
+var User = require('../models/users')
+var BusInfo = require('../models/bus_info')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 
@@ -54,7 +55,51 @@ var functions = {
         else {
             return res.json({success: false, msg: 'No Headers'})
         }
-    }
+    },
+	busViewDetails: function (req, res) {
+		try {
+			BusInfo.findOne({busId: req.query.busId}, (err, bus_info) => {
+				if (bus_info) {
+					console.log('bus: ', bus_info);
+					return res.json({success: true, bus_info})
+				}
+				else if (err) {
+					console.error(err);
+					return res.json({success: false, msg: 'Bus not found with given id'});
+				}
+			})
+			return res.json({success: false, msg: 'Bus not found with given id'})
+		} catch(err) {
+			console.error(err);
+			return res.status(500).send(err);
+		}
+	},
+	busList: async function (req, res) {
+		try {
+			let busDetails = await BusInfo.find();
+			if (busDetails) {
+				return res.json({success: true, busDetails});
+			} else {
+				return res.json({success: false, msg: 'No bus details found'});
+			}
+		} catch(err) {
+			console.error(err);
+			return res.json({success: false, err});
+		}
+	},
+	busUpdateDetails: async function (req, res) {
+		try {
+			let busDetails = await BusInfo.updateOne({busId: req.body.busId}, {occupied_seats: req.body.occupied_seats});
+			if (busDetails) {
+				return res.json({success: true, busDetails});
+			} else {
+				return res.json({success: false, msg: 'No bus found to update'});
+			}
+		} catch(err) {
+			console.error(err);
+			return res.json({success: false, err});
+		}
+	}
 }
 
 module.exports = functions

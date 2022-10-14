@@ -22,4 +22,13 @@ router.post('/authenticate', actions.authenticate)
 //@route GET /getinfo
 router.get('/getinfo', actions.getinfo)
 
+//@route GET buslist
+router.get('/busList', actions.busList)
+
+//@route POST bus update details
+router.post('/busUpdateDetails', actions.busUpdateDetails)
+
+//@route GET bus view detials
+router.get('/busViewDetails', actions.busViewDetails)
+
 module.exports = router
