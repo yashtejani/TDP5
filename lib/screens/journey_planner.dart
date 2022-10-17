@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:project/mock/mock_bus_list.dart';
+=======
+>>>>>>> 019ac3444bc9f0946e00e9ea9cdbd3da8318937e
 
 import '../model/bus_list_item.dart';
 
 class JourneyPlanner extends StatelessWidget {
+<<<<<<< HEAD
     final List<BusListItem> busList = MockBusList.FetchAny();
 
   // const JourneyPlanner(this.busList, {super.key});
   JourneyPlanner({super.key});
+=======
+  final List<BusListItem> busList;
+
+  const JourneyPlanner(this.busList, {super.key});
+
+>>>>>>> 019ac3444bc9f0946e00e9ea9cdbd3da8318937e
 
   @override
   Widget build(BuildContext context) {
     final currentLocationController = TextEditingController();
     final destinationController = TextEditingController();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 019ac3444bc9f0946e00e9ea9cdbd3da8318937e
     return Scaffold(
         appBar: AppBar(
           title: const Text('Journey planner'),
