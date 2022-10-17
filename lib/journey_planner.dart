@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:project/mock/mock_bus_list.dart';
-import '../model/bus_list_item.dart';
+
+import 'model/bus_list_item.dart';
 
 class JourneyPlanner extends StatelessWidget {
-    final List<BusListItem> busList = MockBusList.FetchAny();
+  final List<BusListItem> busList;
 
-  // const JourneyPlanner(this.busList, {super.key});
-  JourneyPlanner({super.key});
-  
+  const JourneyPlanner(this.busList, {super.key});
+
   @override
   Widget build(BuildContext context) {
     final currentLocationController = TextEditingController();
