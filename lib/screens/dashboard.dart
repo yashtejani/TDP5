@@ -101,6 +101,7 @@ class Dashboard extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            /*
             Positioned(
               bottom: 30,
               // left: 100.w / 2 - (70 / 2),
@@ -115,7 +116,11 @@ class Dashboard extends StatelessWidget {
                 iconSize: 30,
                 icon: Icons.menu,
               ),
+
+
             )
+
+             */
           ],
         )
     );
