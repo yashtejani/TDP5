@@ -5,6 +5,7 @@ var config = require('../config/dbconfig')
 
 var functions = {
     addNew: function (req, res) {
+	    console.log(req.body);
         if ((!req.body.name) || (!req.body.password)) {
             res.json({success: false, msg: 'Enter all fields'})
         }
@@ -58,17 +59,18 @@ var functions = {
     },
 	busViewDetails: function (req, res) {
 		try {
-			BusInfo.findOne({busId: req.query.busId}, (err, bus_info) => {
-				if (bus_info) {
-					console.log('bus: ', bus_info);
-					return res.json({success: true, bus_info})
-				}
-				else if (err) {
-					console.error(err);
-					return res.json({success: false, msg: 'Bus not found with given id'});
-				}
-			})
-			return res.json({success: false, msg: 'Bus not found with given id'})
+			if (req.query.busId) {
+				BusInfo.findOne({busId: parseInt(req.query.busId)}, (err, bus_info) => {
+					if (bus_info) {
+						console.log('bus: ', bus_info);
+						return res.json({success: true, bus_info})
+					}
+					else if (err) {
+						console.error(err);
+						return res.json({success: false, msg: 'Bus not found with given id'});
+					}
+				})
+			} else	return res.json({success: false, msg: 'Bus not found with given id'})
 		} catch(err) {
 			console.error(err);
 			return res.status(500).send(err);
