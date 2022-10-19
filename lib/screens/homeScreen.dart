@@ -40,6 +40,7 @@ class _HomeState extends State {
       ),
       body: pageList[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: 0,
         onTap: onTabTapped, // this will be set when a new tab is tapped
         items: const [

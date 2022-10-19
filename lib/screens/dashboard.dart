@@ -64,7 +64,7 @@ class Dashboard extends StatelessWidget {
             ),
             WidgetButton(
               title: "Update Bus Information",
-              color: Colors.orange,
+              color: Colors.blue,
               icon: Icons.departure_board_outlined,
               screen:  JourneyPlanner(),
               onTap: () {
@@ -76,7 +76,7 @@ class Dashboard extends StatelessWidget {
             ),
             WidgetButton(
               title: "View Report",
-              color: Colors.green,
+              color: Colors.blue,
 
               icon: Icons.library_books_sharp,
               screen:  JourneyPlanner(),
@@ -89,7 +89,7 @@ class Dashboard extends StatelessWidget {
             ),
             WidgetButton(
               title: "Notifications",
-              color: Colors.pink,
+              color: Colors.blue,
 
               icon: Icons.notification_add,
               screen:  JourneyPlanner(),
