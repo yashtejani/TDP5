@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/admin.dart';
+import 'package:project/screens/adminLogin.dart';
 import 'package:project/screens/busList.dart';
 import 'package:project/screens/dashboard.dart';
 import 'package:project/screens/journey_planner.dart';
@@ -29,7 +30,7 @@ class _HomeState extends State {
      BusList(),
     JourneyPlanner(),
     const Dashboard(),
-    const Admin()
+    const AdminLogin()
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,7 @@ class _HomeState extends State {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.computer),
-            label: 'Admin',
+            label: 'Admin Login',
             backgroundColor: Colors.blue,
           )
         ],
