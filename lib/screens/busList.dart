@@ -319,7 +319,7 @@ class BusListDetail3 extends StatelessWidget {
             ),
           ),
           const Icon(
-            Icons.directions_bus_filled_outlined,
+            Icons.bus_alert_outlined,
             size: 60,
             color: Colors.orange,
           )
