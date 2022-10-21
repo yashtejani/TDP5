@@ -49,13 +49,23 @@ class BusList extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          "Next buses at Stop 103 High St",
-          style: TextStyle(
-            color: Colors.blueGrey[900],
-            fontWeight: FontWeight.w700,
-            fontSize: 20,
-          ),
+        const Text.rich(
+          TextSpan(
+              text:
+              "Next buses at Stop 103 High St ",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 20,
+              ),
+              children: [
+                WidgetSpan(
+                  child: Icon(
+                    Icons.location_on,
+                    color: Colors.blue,
+                  ),
+                ),
+              ]),
         ),
         const Spacer(),
         InkWell(
@@ -85,7 +95,7 @@ class BusListDetail1 extends StatelessWidget {
         20,
       ),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Colors.grey[100],
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
@@ -100,7 +110,7 @@ class BusListDetail1 extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.blueGrey[900],
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -255,7 +265,7 @@ class BusListDetail3 extends StatelessWidget {
         20,
       ),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Colors.grey[100],
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
