@@ -25,14 +25,14 @@ class ViewBusDetail extends StatelessWidget {
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(8.0),
                   topRight: Radius.circular(8.0),
+                  bottomLeft: Radius.circular(8.0),
+                  bottomRight: Radius.circular(8.0),
                 ),
-                child: Image.network('https://placeimg.com/640/480/any',
-                    // width: 300,
-                    height: 150,
-                    fit: BoxFit.fill),
+                child: Image.asset('assets/images/map.png',
+                    width: 300, height: 150, fit: BoxFit.fill),
               ),
-                const Text("Bus no 1"),
-                 const Text("Seat available"),
+              const Text("Bus no 1"),
+              const Text("Seat available"),
               Expanded(
                   child: ListView.builder(
                       itemCount: busList.length,
