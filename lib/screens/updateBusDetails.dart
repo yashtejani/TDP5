@@ -1,11 +1,13 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:project/services/bus_service.dart';
 
 class UpdateBus extends StatelessWidget {
   const UpdateBus({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const appTitle = 'Add Bus Details';
+    const appTitle = 'Update Bus Details';
 
     return MaterialApp(
       title: appTitle,
@@ -31,6 +33,12 @@ class UpdateBusForm extends StatefulWidget {
 
 class UpdateBusFormState extends State<UpdateBusForm> {
   final _formKey = GlobalKey<FormState>();
+  bool isLoaded = true;
+  List? data;
+  TextEditingController busId = TextEditingController();
+  TextEditingController availSeats = TextEditingController();
+  var capacity;
+  var occupied;
   String dropdownvalueroute = 'Hallam - Caulfield';
   var routeitems = [
     'Hallam - Caulfield',
@@ -46,8 +54,47 @@ class UpdateBusFormState extends State<UpdateBusForm> {
     '10 AM - 11 AM',
     '11 AM - 12 AM'
   ];
+
+  fetchBusDetails(bId) async {
+    BusService().getBusDetails(bId).then((val) {
+      if (val['success']) {
+        busId.text = val['bus_info']['busId'].toString();
+        capacity = val['bus_info']['capacity'];
+        occupied = val['bus_info']['occupied_seats'];
+        availSeats.text = (capacity - occupied).toString();
+      }
+      ;
+    });
+    // var response = await http.get('http://localhost:3002/busList');
+    // //    var response = await http
+    // //        .get('https://rest-api-avi-seventeen-june.herokuapp.com/posts/listall');
+
+    // print(response.body);
+    // setState(() {
+    //   data = jsonDecode(response.body);
+    //   isLoaded = true;
+    // });
+  }
+
+  @override
+  void initState() {
+    var bId = 1;
+    //super.initState();
+    fetchBusDetails(bId);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    data = null;
+    isLoaded = false;
+    print('bjhsavdu');
+  }
+
   @override
   Widget build(BuildContext context) {
+    int? passengerCount = 0;
     return Form(
         key: _formKey,
         child: Column(
@@ -56,6 +103,7 @@ class UpdateBusFormState extends State<UpdateBusForm> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextFormField(
+                enabled: false,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Bus No',
@@ -66,11 +114,13 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                   }
                   return null;
                 },
+                controller: busId,
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextFormField(
+                enabled: false,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Current Station',
@@ -81,41 +131,13 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                   }
                   return null;
                 },
+                controller: TextEditingController(text: "Richmond"),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Arrival Time',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Departure Time',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextFormField(
+                enabled: false,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Available Seats',
@@ -126,6 +148,29 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                   }
                   return null;
                 },
+                controller: availSeats,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'New Passengers',
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a valid number';
+                  }
+                  return null;
+                },
+                onChanged: (val) {
+                  passengerCount = int.tryParse(val);
+                },
               ),
             ),
             Padding(
@@ -133,13 +178,23 @@ class UpdateBusFormState extends State<UpdateBusForm> {
               child: ElevatedButton(
                 onPressed: () {
                   // Validate returns true if the form is valid, or false otherwise.
-                  if (_formKey.currentState!.validate()) {
-                    // If the form is valid, display a snackbar. In the real world,
-                    // you'd often call a server or save the information in a database.
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')),
-                    );
-                  }
+                  BusService()
+                      .updateBusDeatails(
+                          busId.text, capacity, occupied, passengerCount)
+                      .then((val) {
+                    if (val['success']) {
+                      print("Success");
+                      //TODO : Navigate to view bus details of the selected bus
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Error Occured'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                    ;
+                  });
                 },
                 child: const Text('Submit'),
               ),

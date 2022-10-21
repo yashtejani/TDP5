@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project/mock/mock_bus_list.dart';
-import 'package:project/model/bus_detail.dart';
 import 'package:project/screens/viewBusDetail.dart';
 import '../model/bus_list_item.dart';
 

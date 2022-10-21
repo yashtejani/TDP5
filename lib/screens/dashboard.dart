@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/journey_planner.dart';
 import 'package:project/mock/mock_bus_list.dart';
+import 'package:project/screens/updateBusDetails.dart';
 import 'package:project/widgets/circle_gradient_icon.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/screen_display.dart';
@@ -26,7 +27,7 @@ class Dashboard extends StatelessWidget {
                 color: Colors.blue,
                 shape: BoxShape.circle,
               ),
-             /*
+              /*
               child: InkWell(
                 onTap: () {},
                 customBorder: RoundedRectangleBorder(
@@ -42,7 +43,7 @@ class Dashboard extends StatelessWidget {
         ),
 
         body: Column(
-            children: <Widget>[
+          children: <Widget>[
             const SizedBox(
               height: 20,
             ),
@@ -54,50 +55,46 @@ class Dashboard extends StatelessWidget {
               title: "Journey Planner",
               color: Colors.blue,
               icon: Icons.route_outlined,
-              screen:  JourneyPlanner(),
+              screen: JourneyPlanner(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: JourneyPlanner())));
               },
             ),
             WidgetButton(
               title: "Update Bus Information",
-              color: Colors.orange,
+              color: Colors.blue,
               icon: Icons.departure_board_outlined,
-              screen:  JourneyPlanner(),
+              screen: UpdateBus(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: UpdateBus())));
               },
             ),
             WidgetButton(
               title: "View Report",
-              color: Colors.green,
+              color: Colors.blue,
 
               icon: Icons.library_books_sharp,
-              screen:  JourneyPlanner(),
+              screen: JourneyPlanner(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: JourneyPlanner())));
               },
             ),
             WidgetButton(
               title: "Notifications",
-              color: Colors.pink,
+              color: Colors.blue,
 
               icon: Icons.notification_add,
-              screen:  JourneyPlanner(),
+              screen: JourneyPlanner(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: JourneyPlanner())));
               },
             ),
             const SizedBox(
@@ -110,10 +107,12 @@ class Dashboard extends StatelessWidget {
               right: 30,
               child: CircleGradientIcon(
                 color: Colors.indigo,
-                onTap: () {Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MaterialApp(
-                        title: 'Bus replacing train',
-                        home: JourneyPlanner())));},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MaterialApp(
+                          title: 'Bus replacing train',
+                          home: JourneyPlanner())));
+                },
                 size: 60,
                 iconSize: 30,
                 icon: Icons.menu,
@@ -124,8 +123,7 @@ class Dashboard extends StatelessWidget {
 
              */
           ],
-        )
-    );
+        ));
   }
 }
 
