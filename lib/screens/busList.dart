@@ -50,11 +50,11 @@ class BusList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "Next buses at Stop 103 Plenty Rd/High St",
+          "Next buses at Stop 103 High St",
           style: TextStyle(
             color: Colors.blueGrey[900],
             fontWeight: FontWeight.w700,
-            fontSize: 22,
+            fontSize: 20,
           ),
         ),
         const Spacer(),
@@ -266,7 +266,7 @@ class BusListDetail3 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Route 35 to Melbourne Central Station",
+                  "Route 35 to Parliament Station",
                   style: TextStyle(
                     color: Colors.blueGrey[900],
                     fontWeight: FontWeight.bold,
