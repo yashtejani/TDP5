@@ -99,8 +99,10 @@ class AddStaffState extends State {
         automaticallyImplyLeading: false,
         // ignore: unnecessary_new
         leading: new IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.orange),
-          onPressed: () => Navigator.of(context).pop(context),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const MaterialApp(
+                  title: 'My Flutter App', home: Admin()))),
         ),
       ),
       body: Column(

@@ -50,7 +50,7 @@ class Dashboard extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            WidgetButton(
+            /* WidgetButton(
               title: "Journey Planner",
               color: Colors.blue,
               icon: Icons.route_outlined,
@@ -60,7 +60,7 @@ class Dashboard extends StatelessWidget {
                     builder: (context) => MaterialApp(
                         title: 'Bus replacing train', home: JourneyPlanner())));
               },
-            ),
+            ), */
             WidgetButton(
               title: "Update Bus Information",
               color: Colors.blue,
