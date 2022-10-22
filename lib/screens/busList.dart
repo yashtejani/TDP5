@@ -146,7 +146,7 @@ class BusListDetail1 extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 foregroundColor:
                                 Theme.of(context).colorScheme.onSecondaryContainer,
-                                backgroundColor: Colors.green,
+                                backgroundColor: Colors.lightGreen,
                               ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                               child: const Text('Arrived', style: TextStyle(
                                   fontSize: 11.0,
@@ -163,7 +163,7 @@ class BusListDetail1 extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 foregroundColor:
                                 Theme.of(context).colorScheme.onSecondaryContainer,
-                                backgroundColor: Colors.orange,
+                                backgroundColor: Colors.orangeAccent,
                               ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                               child: const Text('Departed', style: TextStyle(
                                   fontSize: 11.0,
@@ -278,7 +278,7 @@ class BusListDetail2 extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           foregroundColor:
                           Theme.of(context).colorScheme.onSecondaryContainer,
-                          backgroundColor: Colors.green,
+                          backgroundColor: Colors.lightGreen,
                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                         child: const Text('Arrived', style: TextStyle(
                             fontSize: 11.0,
@@ -295,7 +295,7 @@ class BusListDetail2 extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           foregroundColor:
                           Theme.of(context).colorScheme.onSecondaryContainer,
-                          backgroundColor: Colors.orange,
+                          backgroundColor: Colors.orangeAccent,
                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                         child: const Text('Departed', style: TextStyle(
                             fontSize: 11.0,
@@ -322,7 +322,7 @@ class BusListDetail2 extends StatelessWidget {
                   child: const Text(
                     "Crowded Level - Plenty of Seats",
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Colors.lightGreen,
                     ),
                   ),
                 )
@@ -408,7 +408,7 @@ class BusListDetail3 extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           foregroundColor:
                           Theme.of(context).colorScheme.onSecondaryContainer,
-                          backgroundColor: Colors.green,
+                          backgroundColor: Colors.lightGreen,
                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                         child: const Text('Arrived', style: TextStyle(
                             fontSize: 11.0,
@@ -425,7 +425,7 @@ class BusListDetail3 extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           foregroundColor:
                           Theme.of(context).colorScheme.onSecondaryContainer,
-                          backgroundColor: Colors.orange,
+                          backgroundColor: Colors.orangeAccent,
                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                         child: const Text('Departed', style: TextStyle(
                             fontSize: 11.0,
@@ -451,7 +451,7 @@ class BusListDetail3 extends StatelessWidget {
                   child: const Text(
                     "Crowded Level - Plenty of Seats",
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Colors.lightGreen,
                     ),
                   ),
                 )
