@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project/screens/journey_planner.dart';
 import 'package:project/mock/mock_bus_list.dart';
 import 'package:project/screens/updateBusDetails.dart';
-import 'package:project/widgets/circle_gradient_icon.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/screen_display.dart';
 import '../model/bus_list_item.dart';
@@ -69,7 +68,7 @@ class Dashboard extends StatelessWidget {
               screen: UpdateBus(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MaterialApp(
+                    builder: (context) => const MaterialApp(
                         title: 'Bus replacing train', home: UpdateBus())));
               },
             ),

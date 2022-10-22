@@ -3,6 +3,7 @@ import 'package:project/screens/admin.dart';
 import 'package:project/screens/adminLogin.dart';
 import 'package:project/screens/busList.dart';
 import 'package:project/screens/dashboard.dart';
+import 'package:project/screens/groundStaffLogin.dart';
 import 'package:project/screens/journey_planner.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -29,7 +30,7 @@ class _HomeState extends State {
   final pageList = [
      BusList(),
     JourneyPlanner(),
-    const Dashboard(),
+    const GroundStaffLogin(),
     const AdminLogin()
   ];
   @override

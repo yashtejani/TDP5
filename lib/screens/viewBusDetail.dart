@@ -21,6 +21,10 @@ class ViewBusDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+              const Text(
+                "Updated 5 min ago",
+                style: TextStyle(height: 5, fontSize: 18),
+              ),
               ClipRRect(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(8.0),
@@ -31,8 +35,10 @@ class ViewBusDetail extends StatelessWidget {
                 child: Image.asset('assets/images/map.png',
                     width: 300, height: 150, fit: BoxFit.fill),
               ),
-              const Text("Bus no 1"),
-              const Text("Seat available"),
+              const Text("Bus no 1" ,
+                style: TextStyle(height: 2, fontSize: 18)),
+              const Text("Seat available",
+                style: TextStyle(height: 2, fontSize: 18)),
               Expanded(
                   child: ListView.builder(
                       itemCount: busList.length,
