@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../core/res/color.dart';
+import 'package:project/screens/viewBusDetail.dart';
 
 class BusList extends StatelessWidget {
   const BusList({super.key});
@@ -127,6 +128,8 @@ class BusListDetail1 extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
+
+
                     Text(
                       "Arriving in 10mins",
                       style: TextStyle(
@@ -134,6 +137,42 @@ class BusListDetail1 extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                          ElevatedButton(
+                              onPressed: () => {
+                              },
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor:
+                                Theme.of(context).colorScheme.onSecondaryContainer,
+                                backgroundColor: Colors.green,
+                              ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                              child: const Text('Arrived', style: TextStyle(
+                                  fontSize: 11.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+                              ))
+                          ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                          ElevatedButton(
+                              onPressed: () => {
+                              },
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor:
+                                Theme.of(context).colorScheme.onSecondaryContainer,
+                                backgroundColor: Colors.orange,
+                              ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                              child: const Text('Departed', style: TextStyle(
+                                  fontSize: 11.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+                              ))
+                          ),
+
+
                   ],
                 ),
                 const SizedBox(
@@ -154,15 +193,25 @@ class BusListDetail1 extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                )
+                ),
+
               ],
             ),
           ),
-          const Icon(
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  ViewBusDetail()),
+              );
+            },
+            child: const Icon(
             Icons.directions_bus_filled_outlined,
             size: 60,
             color: Colors.orange,
           )
+    )
         ],
       ),
     );
@@ -219,6 +268,43 @@ class BusListDetail2 extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
+
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => {
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor:
+                          Theme.of(context).colorScheme.onSecondaryContainer,
+                          backgroundColor: Colors.green,
+                        ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                        child: const Text('Arrived', style: TextStyle(
+                            fontSize: 11.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                        ))
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => {
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor:
+                          Theme.of(context).colorScheme.onSecondaryContainer,
+                          backgroundColor: Colors.orange,
+                        ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                        child: const Text('Departed', style: TextStyle(
+                            fontSize: 11.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                        ))
+                    ),
+
+
                   ],
                 ),
                 const SizedBox(
@@ -243,12 +329,20 @@ class BusListDetail2 extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(
+          InkWell(
+            onTap: () {
+            Navigator.push(
+            context,
+          MaterialPageRoute(
+              builder: (context) =>  ViewBusDetail()),
+    );
+    },
+          child: const Icon(
             Icons.directions_bus_filled_outlined,
             size: 60,
             color: Colors.orange,
           )
-        ],
+    )],
       ),
     );
   }
@@ -304,6 +398,42 @@ class BusListDetail3 extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
+
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => {
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor:
+                          Theme.of(context).colorScheme.onSecondaryContainer,
+                          backgroundColor: Colors.green,
+                        ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                        child: const Text('Arrived', style: TextStyle(
+                            fontSize: 11.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                        ))
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => {
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor:
+                          Theme.of(context).colorScheme.onSecondaryContainer,
+                          backgroundColor: Colors.orange,
+                        ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+                        child: const Text('Departed', style: TextStyle(
+                            fontSize: 11.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                        ))
+                    ),
+
                   ],
                 ),
                 const SizedBox(
@@ -328,12 +458,20 @@ class BusListDetail3 extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(
-            Icons.bus_alert_outlined,
+         InkWell(
+          onTap: () {
+          Navigator.push(
+          context,
+          MaterialPageRoute(
+          builder: (context) =>  ViewBusDetail()),
+    );
+    },
+          child: const Icon(
+            Icons.directions_bus_filled_outlined,
             size: 60,
             color: Colors.orange,
           )
-        ],
+    ) ],
       ),
     );
   }
