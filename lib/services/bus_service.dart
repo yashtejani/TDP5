@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class BusService {
   var mainUrl = Uri.parse('http://localhost:3002/');
@@ -24,26 +25,39 @@ class BusService {
     }
   }
 
-  updateBusDeatails(busId, capacity, occupied, newPassengers) async {
+  updateBusDeatails(busId, capacity, occupied, newPassengers, arrived, departed,
+      action) async {
     try {
       var url = "${mainUrl}busUpdateDetails";
       Map<String, String> headers = new HashMap();
       headers['Accept'] = 'application/json';
       headers['Content-type'] = 'application/json';
-      var seats = occupied + newPassengers;
-      if (seats > capacity) {
-        seats = capacity;
+      var seats;
+      var arrivalTime;
+      var departureTime;
+      var data;
+
+      if (action == "P") {
+        seats = occupied + newPassengers;
+        if (seats > capacity) {
+          seats = capacity;
+        }
+        data = {"busId": busId, "occupied_seats": 5};
+      } else if (action == "A") {
+        arrivalTime = DateFormat('HH:mm').format(DateTime.now());
+        data = {"busId": busId, "arrival_time": arrivalTime};
+      } else if (action == "D") {
+        departureTime = DateFormat('HH:mm').format(DateTime.now());
+        data = {"busId": busId, "departure_time": departureTime};
       }
-      var data = {"busId": busId, "occupied_seats": seats};
       var response = await http.post(Uri.parse(url),
           headers: headers,
           body: jsonEncode(data),
           encoding: Encoding.getByName('utf-8'));
-
       return json.decode(response.body);
-    } on HttpException catch (e) {
+    } catch (e) {
       Fluttertoast.showToast(
-          msg: e.message,
+          msg: e.toString(),
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,

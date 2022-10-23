@@ -89,7 +89,6 @@ class UpdateBusFormState extends State<UpdateBusForm> {
     super.dispose();
     data = null;
     isLoaded = false;
-    print('bjhsavdu');
   }
 
   @override
@@ -179,11 +178,17 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                 onPressed: () {
                   // Validate returns true if the form is valid, or false otherwise.
                   BusService()
-                      .updateBusDeatails(
-                          busId.text, capacity, occupied, passengerCount)
+                      .updateBusDeatails(busId.text, capacity, occupied,
+                          passengerCount, null, null, "P")
                       .then((val) {
                     if (val['success']) {
                       print("Success");
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Available Seats updated'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
                       //TODO : Navigate to view bus details of the selected bus
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

@@ -2,13 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:project/mock/mockBusDetailList.dart';
 
 import '../model/bus_detail_list_item.dart';
+import '../services/bus_service.dart';
 
 class ViewBusDetail extends StatelessWidget {
   ViewBusDetail({super.key});
   final List<BustDetailListItem> busList = MockBusDetailList.FetchAny();
+  String busId = "Bus No : ";
+  var capacity;
+  var occupied;
+  String seats = "Available Seats : ";
 
   @override
   Widget build(BuildContext context) {
+    fetchBusDetails(bId) async {
+      BusService().getBusDetails(bId).then((val) {
+        print(val);
+        if (val['success']) {
+          busId = busId + val['bus_info']['busId'].toString();
+          capacity = val['bus_info']['capacity'];
+          occupied = val['bus_info']['occupied_seats'];
+          seats = seats + (capacity - occupied).toString();
+        }
+        ;
+      });
+    }
+
+    // TODO
+    @override
+    void initState() {
+      var bId = 1;
+      fetchBusDetails(bId);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('View Bus Detail'),
@@ -35,10 +60,8 @@ class ViewBusDetail extends StatelessWidget {
                 child: Image.asset('assets/images/map.png',
                     width: 300, height: 150, fit: BoxFit.fill),
               ),
-              const Text("Bus no 1" ,
-                style: TextStyle(height: 2, fontSize: 18)),
-              const Text("Seat available",
-                style: TextStyle(height: 2, fontSize: 18)),
+              Text(busId, style: TextStyle(height: 2, fontSize: 18)),
+              Text(seats, style: TextStyle(height: 2, fontSize: 18)),
               Expanded(
                   child: ListView.builder(
                       itemCount: busList.length,
