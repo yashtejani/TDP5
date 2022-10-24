@@ -7,7 +7,9 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 class BusService {
-  var mainUrl = Uri.parse('http://localhost:3002/');
+  var mainUrl = Uri.parse('http://tdp.studyproject.one/');
+  // var mainUrl = Uri.parse('http://localhost:3002/');
+
   getBusList() async {
     try {
       var url = "${mainUrl}busList";
