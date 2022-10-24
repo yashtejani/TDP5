@@ -8,7 +8,6 @@
 .buildlog/
 .history
 .svn/
-migrate_working_dir/
 
 # IntelliJ related
 *.iml
@@ -32,6 +31,13 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Firebase – this is necessary if you use Firebase since it could otherwise 
+# lead to leaking of private certificates to your repository, which is no bueno.
+.firebase/
+
+# Web related
+lib/generated_plugin_registrant.dart
+
 # Symbolication related
 app.*.symbols
 
@@ -42,5 +48,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-backend/node_modules
