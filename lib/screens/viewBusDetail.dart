@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/mock/mockBusDetailList.dart';
 import 'dart:developer';
+import '../core/res/color.dart';
 
 import '../model/bus_detail_list_item.dart';
 import '../services/bus_service.dart';
@@ -14,6 +15,8 @@ class ViewBusDetail extends StatefulWidget {
 
 class _ViewBusDetailState extends State<ViewBusDetail> {
   final List<BustDetailListItem> busList = MockBusDetailList.FetchAny();
+  String arriveTime = "Arrived at : 11:30  ";
+  String departTime = "Depart at  : 15:30 ";
   String busId = "Bus No : ";
   var capacity;
   var occupied;
@@ -65,8 +68,30 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
                 child: Image.asset('assets/images/map.png',
                     width: 300, height: 150, fit: BoxFit.fill),
               ),
-              Text(busId, style: const TextStyle(height: 2, fontSize: 18)),
-              Text(seats, style: const TextStyle(height: 2, fontSize: 18)),
+              Text(arriveTime,
+                  style: const TextStyle(
+                    height: 2,
+                    fontSize: 18,
+                    color: Colors.white,
+                  )),
+              Text(departTime,
+                  style: const TextStyle(
+                    height: 2,
+                    fontSize: 18,
+                    color: Colors.white,
+                  )),
+              Text(busId,
+                  style: const TextStyle(
+                    height: 2,
+                    fontSize: 18,
+                    color: Colors.white,
+                  )),
+              Text(seats,
+                  style: const TextStyle(
+                    height: 2,
+                    fontSize: 18,
+                    color: Colors.white,
+                  )),
               Expanded(
                   child: ListView.builder(
                       itemCount: busList.length,
