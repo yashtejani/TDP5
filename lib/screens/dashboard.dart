@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/journey_planner.dart';
+import 'package:project/screens/notificationView.dart';
 import 'package:project/mock/mock_bus_list.dart';
 import 'package:project/screens/updateBusDetails.dart';
 import '../widgets/searchbar.dart';
@@ -89,11 +90,11 @@ class Dashboard extends StatelessWidget {
               color: Colors.blue,
 
               icon: Icons.notification_add,
-              screen: JourneyPlanner(),
+              screen: NotificationView(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train', home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: NotificationView())));
               },
             ),
             const SizedBox(
