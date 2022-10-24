@@ -92,6 +92,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///C:/Users/Jyoshna/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///C:/Users/Jyoshna/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.4",
       "packageUri": "lib/",
@@ -200,7 +206,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-10-21T23:10:56.207931Z",
+  "generated": "2022-10-24T06:48:09.806164Z",
   "generator": "pub",
   "generatorVersion": "2.18.1"
 }
