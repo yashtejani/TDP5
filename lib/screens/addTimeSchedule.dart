@@ -1,6 +1,7 @@
-/*import 'package:flutter/material.dart';
-import 'package:tdp/menu.dart';
-import 'package:tdp/model/staff.dart';
+import 'package:flutter/material.dart';
+import 'package:project/model/time_schedule.dart';
+import 'package:project/screens/admin.dart';
+import 'package:project/screens/homeScreen.dart';
 
 class TimeSchedule extends StatefulWidget {
   const TimeSchedule({Key? key}) : super(key: key);
@@ -10,60 +11,39 @@ class TimeSchedule extends StatefulWidget {
 }
 
 class TimeScheduleState extends State {
-  final staffIDController = TextEditingController();
-  final passwordController = TextEditingController();
-  final contactNoController = TextEditingController();
-  final addressController = TextEditingController();
-  final postalCodeController = TextEditingController();
+  final slotIDController = TextEditingController();
+  final startTimeController = TextEditingController();
+  final endTimeController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     //build method
-    final staffID = TextField(
+    final slotID = TextField(
       obscureText: false,
-      controller: staffIDController,
+      controller: slotIDController,
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "StaffID Here",
+          hintText: "Slot ID Here",
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))),
     );
 
-    final password = TextField(
-      obscureText: true,
-      controller: passwordController,
+    final startTime = TextField(
+      obscureText: false,
+      controller: startTimeController,
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Password Here",
+          hintText: "start time Here",
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))),
     );
 
-    final contactNo = TextField(
+    final endTime = TextField(
       obscureText: false,
-      controller: contactNoController,
+      controller: endTimeController,
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Mobile Here",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))),
-    );
-
-    final address = TextField(
-      obscureText: false,
-      controller: addressController,
-      decoration: InputDecoration(
-          contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Address Here",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))),
-    );
-
-    final postalCode = TextField(
-      obscureText: false,
-      controller: postalCodeController,
-      decoration: InputDecoration(
-          contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "postal code Here",
+          hintText: "End Time Here",
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))),
     );
@@ -76,14 +56,11 @@ class TimeScheduleState extends State {
         minWidth: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.fromLTRB(50.0, 15.0, 50.0, 15.0),
         onPressed: () {
-          User user = User();
-          user.staffID = staffIDController.text;
-          user.password = passwordController.text;
-          user.contactNo = contactNoController.text;
-          user.address = addressController.text;
-          user.postalCode = postalCodeController.text;
-
-          showAlertDialog(context, user);
+          Timetable timeSchedule = Timetable();
+          timeSchedule.slotID = slotIDController.text;
+          timeSchedule.startTime = startTimeController.text;
+          timeSchedule.endTime = endTimeController.text;
+          showAlertDialog(context, timeSchedule);
         },
         child: const Text(
           "Add",
@@ -94,17 +71,19 @@ class TimeScheduleState extends State {
     );
     return Scaffold(
       //appBar: AppBar(title: const Text("Add Staff")),
-
+      appBar: AppBar(
+        title: const Text('Time Schedule'),
+        automaticallyImplyLeading: false,
+        // ignore: unnecessary_new
+        leading: new IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  const MaterialApp(title: 'My Flutter App', home: Admin()))),
+        ),
+      ),
       body: Column(
         children: [
-          MyAppBar(
-            title: Text(
-              'Add Staff',
-              style: Theme.of(context) //
-                  .primaryTextTheme
-                  .headline6,
-            ),
-          ),
           Center(
             child: Container(
               color: Colors.white,
@@ -115,11 +94,9 @@ class TimeScheduleState extends State {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 25.0),
-                    staffID,
-                    const SizedBox(height: 25.0),
-                    password,
+                    slotID,
                     const SizedBox(height: 5.0),
-                    const Text("Contact details",
+                    const Text("Time Schedule",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Color.fromARGB(180, 3, 1, 28),
@@ -127,11 +104,9 @@ class TimeScheduleState extends State {
                           fontSize: 16,
                         )),
                     const SizedBox(height: 25.0),
-                    contactNo,
+                    startTime,
                     const SizedBox(height: 25.0),
-                    address,
-                    const SizedBox(height: 25.0),
-                    postalCode,
+                    endTime,
                     const SizedBox(
                       height: 15.0,
                     ),
@@ -147,7 +122,7 @@ class TimeScheduleState extends State {
   }
 }
 
-showAlertDialog(BuildContext context, User user) {
+showAlertDialog(BuildContext context, Timetable timeSchedule) {
   Widget gotIt = TextButton(
     child: const Text("Got It"),
     onPressed: () {
@@ -156,8 +131,9 @@ showAlertDialog(BuildContext context, User user) {
   );
 
   AlertDialog alert = AlertDialog(
-    title: const Text("My Information"),
-    content: Text('${user.staffID}\n${user.password}\n${user.contactNo}'),
+    title: const Text("Time Schedule"),
+    content: Text(
+        'Slot ID :  ${timeSchedule.slotID}\nStart Time :  ${timeSchedule.startTime}\nEnd Time :  ${timeSchedule.endTime}'),
     actions: [
       gotIt,
     ],
@@ -170,4 +146,3 @@ showAlertDialog(BuildContext context, User user) {
     },
   );
 }
-*/
