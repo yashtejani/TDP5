@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:project/screens/viewBusDetail.dart';
 import 'package:project/services/bus_service.dart';
 
 class UpdateBus extends StatelessWidget {
@@ -185,6 +186,10 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                     if (val['success']) {
                       print("Success");
                       //TODO : Navigate to view bus details of the selected bus
+                      // return MaterialApp(
+                      //   title: 'View Bus Detail',
+                      //   home: ViewBusDetail(),
+                      // );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

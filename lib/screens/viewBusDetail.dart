@@ -35,10 +35,9 @@ class ViewBusDetail extends StatelessWidget {
                 child: Image.asset('assets/images/map.png',
                     width: 300, height: 150, fit: BoxFit.fill),
               ),
-              const Text("Bus no 1" ,
-                style: TextStyle(height: 2, fontSize: 18)),
+              const Text("Bus no 1", style: TextStyle(height: 2, fontSize: 18)),
               const Text("Seat available",
-                style: TextStyle(height: 2, fontSize: 18)),
+                  style: TextStyle(height: 2, fontSize: 18)),
               Expanded(
                   child: ListView.builder(
                       itemCount: busList.length,
@@ -48,7 +47,7 @@ class ViewBusDetail extends StatelessWidget {
                           title: item.buildTime(context),
                           subtitle: item.buildBusNo(context),
                         );
-                      })))
+                      }))),
             ],
           ),
         ),
