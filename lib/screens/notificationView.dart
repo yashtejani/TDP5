@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/dashboard.dart';
 
 class Notification {
   String msgTitle;
@@ -11,17 +12,28 @@ class NotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar:appBar(),
+    const appTitle = 'Notification';
+    return MaterialApp(
+    title: appTitle,
+    home: Scaffold(
+      appBar: AppBar(
+        title: const Text(appTitle),
+    leading: IconButton(
+    icon: const Icon(Icons.arrow_back, color: Colors.white),
+    onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => const MaterialApp(
+    title: 'My Flutter App', home: Dashboard()))),
+    ),
+    ),
+
       body: listView(),
+    ),
     );
   }
 
-  PreferredSizeWidget appBar(){
-    return AppBar(
-      title: Text('Notification'),
-    );
-  }
+
+
+
 
   Widget listView(){
     final List<Notification> notification =[

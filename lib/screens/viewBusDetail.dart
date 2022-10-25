@@ -62,19 +62,18 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
               ),
               Container(
                 alignment: Alignment.topRight,
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(5),
                 child: ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const MaterialApp(
                             title: 'Bus replacing train', home: UpdateBus())));
                   },
-                  icon: const Icon(Icons.update), //icon data for elevated button
+                  icon:
+                      const Icon(Icons.update), //icon data for elevated button
                   label: const Text("Update"), //label text
                   style: ElevatedButton.styleFrom(
-                    
-                      primary:
-                          Colors.green //elevated btton background color
+                      primary: Colors.green //elevated btton background color
                       ),
                 ),
               ),
@@ -88,36 +87,62 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
                 child: Image.asset('assets/images/map.png',
                     width: 300, height: 150, fit: BoxFit.fill),
               ),
-              Text(arriveTime,
-                  style: const TextStyle(
-                    height: 2,
-                    fontSize: 18,
-                    color: Colors.white,
-                  )),
-              Text(departTime,
-                  style: const TextStyle(
-                    height: 2,
-                    fontSize: 18,
-                    color: Colors.white,
-                  )),
-              Text(busId,
-                  style: const TextStyle(
-                    height: 2,
-                    fontSize: 18,
-                    color: Colors.white,
-                  )),
-              Text(seats,
-                  style: const TextStyle(
-                    height: 2,
-                    fontSize: 18,
-                    color: Colors.white,
-                  )),
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(5),
+                decoration: const BoxDecoration(color: Colors.green),
+                child: Text(arriveTime,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      height: 1,
+                      color: Colors.white,
+                    )),
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(5),
+                decoration: const BoxDecoration(color: Colors.orange),
+                child: Text(departTime,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      height: 1,
+                      color: Colors.white,
+                    )),
+              ),
+                Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(5),
+                decoration: const BoxDecoration(color: Colors.yellow),
+                child: Text(busId,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      height: 1,
+                      color: Colors.black,
+                    )),
+              ),
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(5),
+                decoration: const BoxDecoration(color: Colors.yellow),
+                child: Text(seats,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      height: 1,
+                      color: Colors.black,
+                    )),
+              ),
+            
               Expanded(
                   child: ListView.builder(
                       itemCount: busList.length,
                       itemBuilder: ((context, index) {
                         final item = busList[index];
                         return ListTile(
+                          textColor: Colors.white,
                           title: item.buildTime(context),
                           subtitle: item.buildBusNo(context),
                         );
