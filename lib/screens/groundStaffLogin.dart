@@ -12,16 +12,23 @@ class GroundStaffLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('GroundStaffLogin'),
+          title: const Text('Ground Staff Login'),
         ),
         body: Column(
+
           children: <Widget>[
+            Image.asset(
+              'assets/images/logo.png',
+              fit: BoxFit.cover,
+            ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: TextField(
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter username',
+                  icon: Icon(Icons.email),
+                  hintText: 'Enter Your Username',
+                  labelText: 'Username',
+
                 ),
               ),
             ),
@@ -30,12 +37,20 @@ class GroundStaffLogin extends StatelessWidget {
               child: TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter password',
+                  icon: Icon(Icons.lock),
+                  hintText: 'Enter Your Password',
+                  labelText: 'Password',
                 ),
               ),
             ),
+            TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Forgot Password?',
+              ),
+            ),
             Container(
+
               alignment: Alignment.center,
               padding: const EdgeInsets.all(20),
               child: ElevatedButton.icon(
@@ -45,9 +60,17 @@ class GroundStaffLogin extends StatelessWidget {
                           title: 'Bus replacing train', home: BusList())));
                 },
                 icon: const Icon(Icons.login), //icon data for elevated button
-                label: const Text("Login"), //label text
+                label: const Text(
+                    "Login",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white)), //label text
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.green //elevated btton background color
+                    primary: Colors.pinkAccent,
+                    fixedSize: const Size(220, 60),
+                shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50))
+                  //elevated btton background color
                     ),
               ),
             ),
