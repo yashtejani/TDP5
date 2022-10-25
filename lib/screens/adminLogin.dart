@@ -14,13 +14,28 @@ class AdminLogin extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            const SizedBox(
-              height: 20,
+                  const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter username',
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter password',
+                ),
+              ),
             ),
             WidgetButton(
               title: "Login",
               color: Colors.blue,
-              icon: Icons.list,
+              icon: Icons.login,
               screen: AdminLogin(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
