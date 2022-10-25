@@ -33,16 +33,21 @@ class GroundStaffLogin extends StatelessWidget {
                 ),
               ),
             ),
-            WidgetButton(
-              title: "Login",
-              color: Colors.blue,
-              icon: Icons.login,
-              screen: const GroundStaffLogin(),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MaterialApp(
-                        title: 'Bus replacing train', home: Dashboard())));
-              },
+           Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(20),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MaterialApp(
+                          title: 'Bus replacing train', home: Dashboard())));
+                },
+                icon: const Icon(Icons.login), //icon data for elevated button
+                label: const Text("Login"), //label text
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green //elevated btton background color
+                    ),
+              ),
             ),
             const SizedBox(
               height: 20,

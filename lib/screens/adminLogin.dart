@@ -14,7 +14,7 @@ class AdminLogin extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-                  const Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: TextField(
                 decoration: InputDecoration(
@@ -32,16 +32,21 @@ class AdminLogin extends StatelessWidget {
                 ),
               ),
             ),
-            WidgetButton(
-              title: "Login",
-              color: Colors.blue,
-              icon: Icons.login,
-              screen: AdminLogin(),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MaterialApp(
-                        title: 'Bus replacing train', home: Admin())));
-              },
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(20),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MaterialApp(
+                          title: 'Bus replacing train', home: AdminLogin())));
+                },
+                icon: const Icon(Icons.login), //icon data for elevated button
+                label: const Text("Login"), //label text
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green //elevated btton background color
+                    ),
+              ),
             ),
             const SizedBox(
               height: 20,
