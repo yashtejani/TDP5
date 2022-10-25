@@ -28,9 +28,9 @@ class _HomeState extends State {
   int currentIndex = 0;
   //need to change first to buslist screen instead of Admin
   final pageList = [
-     BusList(),
+     const GroundStaffLogin(),
     JourneyPlanner(),
-    const GroundStaffLogin(),
+    const Dashboard(),
     const AdminLogin()
   ];
   @override

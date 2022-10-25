@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/admin.dart';
+import 'package:project/screens/busList.dart';
 import 'package:project/screens/dashboard.dart';
 
 import '../widgets/screen_display.dart';
@@ -40,7 +41,7 @@ class GroundStaffLogin extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const MaterialApp(
-                          title: 'Bus replacing train', home: Dashboard())));
+                          title: 'Bus replacing train', home: BusList())));
                 },
                 icon: const Icon(Icons.login), //icon data for elevated button
                 label: const Text("Login"), //label text
