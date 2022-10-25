@@ -17,7 +17,7 @@ class GroundStaffLogin extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             Image.asset(
               'assets/images/logo.png',

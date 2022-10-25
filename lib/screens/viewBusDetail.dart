@@ -47,6 +47,7 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('View Bus Detail'),
+          elevation:15,
       ),
       body: Center(
         child: ElevatedButton(

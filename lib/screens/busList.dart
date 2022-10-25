@@ -14,8 +14,11 @@ class BusList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BusList'),
-        elevation: 0,
+      
+
+        shadowColor: Colors.blueAccent,
+        title: const Text('Bus List'),
+        elevation: 15,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).push(MaterialPageRoute(
@@ -40,6 +43,9 @@ class BusList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 15,
+                ),
                 _busListHeader(),
                 const SizedBox(
                   height: 15,
