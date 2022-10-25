@@ -42,22 +42,32 @@ class JourneyPlanner extends StatelessWidget {
                 onPressed: () => {print(currentLocationController.text)},
                 child: const Text('Search', style: TextStyle(fontSize: 20.0))),
             Expanded(
-                child: ListView.builder(
-                    itemCount: busList.length,
-                    itemBuilder: ((context, index) {
-                      final item = busList[index];
-                      return ListTile(
-                        title: item.buildTime(context),
-                        subtitle: item.buildBusNo(context),
-                        onTap: (() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ViewBusDetail()),
+                child: Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 16),
+                    child: ListView.builder(
+                        itemCount: busList.length,
+                        itemBuilder: ((context, index) {
+                          final item = busList[index];
+                          return Card(
+                            color: const Color.fromARGB(255, 192, 203, 218),
+                            elevation: 2,
+                            child: ListTile(
+                              textColor: Colors.black,
+                              leading: const Icon(Icons.bus_alert_sharp),
+                              title: item.buildTime(context),
+                              subtitle: item.buildBusNo(context),
+                              dense: true,
+                              onTap: (() {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ViewBusDetail()),
+                                );
+                              }),
+                            ),
                           );
-                        }),
-                      );
-                    })))
+                        }))))
           ],
         ));
   }

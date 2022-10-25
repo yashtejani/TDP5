@@ -48,117 +48,117 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('View Bus Detail'),
-          elevation:15,
+        elevation: 15,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const MaterialApp(
-                  title: 'My Flutter App', home: BusList()))),
+              builder: (context) =>
+                  const MaterialApp(title: 'My Flutter App', home: BusList()))),
         ),
       ),
-      body:
-           Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-
-
-              const Text(
-                "Updated 5 min ago",
-                style: TextStyle(height: 5, fontSize: 18),
-              ),
-              Container(
-                alignment: Alignment.topRight,
-                padding: const EdgeInsets.all(5),
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const MaterialApp(
-                            title: 'Bus replacing train', home: UpdateBus())));
-                  },
-                  icon:
-                      const Icon(Icons.update), //icon data for elevated button
-                  label: const Text("Update"), //label text
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.green //elevated btton background color
-                      ),
-                ),
-              ),
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(8.0),
-                  topRight: Radius.circular(8.0),
-                  bottomLeft: Radius.circular(8.0),
-                  bottomRight: Radius.circular(8.0),
-                ),
-                child: Image.asset('assets/images/map.png',
-                    width: 300, height: 150, fit: BoxFit.fill),
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(5),
-                decoration: const BoxDecoration(color: Colors.green),
-                child: Text(arriveTime,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      height: 1,
-                      color: Colors.white,
-                    )),
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(5),
-                decoration: const BoxDecoration(color: Colors.orange),
-                child: Text(departTime,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      height: 1,
-                      color: Colors.white,
-                    )),
-              ),
-                Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(5),
-                decoration: const BoxDecoration(color: Colors.yellow),
-                child: Text(busId,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      height: 1,
-                      color: Colors.black,
-                    )),
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(5),
-                decoration: const BoxDecoration(color: Colors.yellow),
-                child: Text(seats,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      height: 1,
-                      color: Colors.black,
-                    )),
-              ),
-            
-              Expanded(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          const Text(
+            "Updated 5 min ago",
+            style: TextStyle(height: 5, fontSize: 18),
+          ),
+          Container(
+            alignment: Alignment.topRight,
+            padding: const EdgeInsets.all(5),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MaterialApp(
+                        title: 'Bus replacing train', home: UpdateBus())));
+              },
+              icon: const Icon(Icons.update), //icon data for elevated button
+              label: const Text("Update"), //label text
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.green //elevated btton background color
+                  ),
+            ),
+          ),
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(8.0),
+              topRight: Radius.circular(8.0),
+              bottomLeft: Radius.circular(8.0),
+              bottomRight: Radius.circular(8.0),
+            ),
+            child: Image.asset('assets/images/map.png',
+                width: 300, height: 150, fit: BoxFit.fill),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(5),
+            decoration: const BoxDecoration(color: Colors.green),
+            child: Text(arriveTime,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  height: 1,
+                  color: Colors.white,
+                )),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(5),
+            decoration: const BoxDecoration(color: Colors.orange),
+            child: Text(departTime,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  height: 1,
+                  color: Colors.white,
+                )),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(5),
+            decoration: const BoxDecoration(color: Colors.yellow),
+            child: Text(busId,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  height: 1,
+                  color: Colors.black,
+                )),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(5),
+            decoration: const BoxDecoration(color: Colors.yellow),
+            child: Text(seats,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  height: 1,
+                  color: Colors.black,
+                )),
+          ),
+          Expanded(
+              child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: ListView.builder(
                       itemCount: busList.length,
                       itemBuilder: ((context, index) {
                         final item = busList[index];
-                        return ListTile(
-                          textColor: Colors.black,
-                          title: item.buildTime(context),
-                          subtitle: item.buildBusNo(context),
+                        return Card(
+                          color: const Color.fromARGB(255, 192, 203, 218),
+                          elevation: 2,
+                          child: ListTile(
+                            textColor: Colors.black,
+                            leading: const Icon(Icons.bus_alert_sharp),
+                            title: item.buildTime(context),
+                            subtitle: item.buildBusNo(context),
+                            dense: true,
+                          ),
                         );
-                      }))),
-            ],
-          ),
-
-
-
-
+                      }))))
+        ],
+      ),
     );
   }
 }
