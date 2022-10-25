@@ -28,13 +28,14 @@ class GroundStaffLogin extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: TextField(
+                obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Enter password',
                 ),
               ),
             ),
-           Container(
+            Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(20),
               child: ElevatedButton.icon(
