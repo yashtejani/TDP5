@@ -26,7 +26,7 @@ class WidgetButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Container(
           width: double.infinity,
-          height: 100,
+          height: 80,
           decoration: BoxDecoration(
               color: color[400],
               boxShadow: [

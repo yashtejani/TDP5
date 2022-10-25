@@ -48,7 +48,6 @@ class Dashboard extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-         
             /* WidgetButton(
               title: "Journey Planner",
               color: Colors.blue,
@@ -60,6 +59,38 @@ class Dashboard extends StatelessWidget {
                         title: 'Bus replacing train', home: JourneyPlanner())));
               },
             ), */
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(140),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 10,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: const CircleAvatar(
+                radius: 90,
+                backgroundImage: AssetImage("assets/images/Profile.png"),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Ground Staff  ",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Text("@ Stop103"),
+            SizedBox(
+              height: 20,
+            ),
+
             WidgetButton(
               title: "Update Bus Information",
               color: Colors.blue,

@@ -197,6 +197,10 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                         const SnackBar(
                           content: Text('Available Seats updated'),
                           backgroundColor: Colors.green,
+                          margin: EdgeInsets.all(60),
+                          behavior: SnackBarBehavior.floating,
+
+                          elevation: 6,
                         ),
                       );
                       //TODO : Navigate to view bus details of the selected bus
@@ -205,6 +209,10 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                         const SnackBar(
                           content: Text('Error Occured'),
                           backgroundColor: Colors.red,
+                          margin: EdgeInsets.all(60),
+                          behavior: SnackBarBehavior.floating,
+
+                          elevation: 6,
                         ),
                       );
                     }
