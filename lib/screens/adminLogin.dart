@@ -39,7 +39,7 @@ class AdminLogin extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const MaterialApp(
-                          title: 'Bus replacing train', home: AdminLogin())));
+                          title: 'Bus replacing train', home: Admin())));
                 },
                 icon: const Icon(Icons.login), //icon data for elevated button
                 label: const Text("Login"), //label text
