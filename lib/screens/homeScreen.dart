@@ -102,7 +102,7 @@ class _HomeState extends State {
             }
             else {
               return const CupertinoPageScaffold(
-                child: Admin(),
+                child: AdminLogin(),
               );
             }
 
