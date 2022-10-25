@@ -10,20 +10,29 @@ class GroundStaffLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Ground Staff Login'),
-        ),
-        body: Column(
-
-          children: <Widget>[
+    return Material(
+        color: Colors.white,
+        child: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
             Image.asset(
               'assets/images/logo.png',
+              height: 320,
               fit: BoxFit.cover,
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: TextField(
+                padding: EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 16,
+                ),
+
+              child:
+
+              TextField(
                 decoration: InputDecoration(
                   icon: Icon(Icons.email),
                   hintText: 'Enter Your Username',
@@ -77,7 +86,11 @@ class GroundStaffLogin extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-          ],
-        ));
+          ],)
+        )
+        )
+    );
+
+
   }
 }
