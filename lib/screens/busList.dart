@@ -14,7 +14,7 @@ class BusList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      
+
 
         shadowColor: Colors.blueAccent,
         title: const Text('Bus List'),
@@ -165,8 +165,14 @@ class BusListDetail1 extends StatelessWidget {
                               print("Success");
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content: Text('Arrival Time updated'),
+                                  behavior: SnackBarBehavior.floating,
                                   backgroundColor: Colors.green,
+                                  elevation: 6,
+
+                                  content:
+                                  Text('Arrival Time updated'),
+                                  margin: EdgeInsets.all(60),
+
                                 ),
                               );
                             } else {
@@ -174,6 +180,9 @@ class BusListDetail1 extends StatelessWidget {
                                 const SnackBar(
                                   content: Text('Error Occured'),
                                   backgroundColor: Colors.red,
+                                  margin: EdgeInsets.all(60),
+                                  elevation: 6,
+
                                 ),
                               );
                             }
@@ -207,6 +216,10 @@ class BusListDetail1 extends StatelessWidget {
                                 const SnackBar(
                                   content: Text('Departure Time updated'),
                                   backgroundColor: Colors.green,
+                                  margin: EdgeInsets.all(60),
+                                  behavior: SnackBarBehavior.floating,
+
+                                  elevation: 6,
                                 ),
                               );
                             } else {

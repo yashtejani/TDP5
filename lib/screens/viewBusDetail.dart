@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/mock/mockBusDetailList.dart';
+import 'package:project/screens/busList.dart';
 import 'package:project/screens/updateBusDetails.dart';
 import 'dart:developer';
 import '../core/res/color.dart';
@@ -48,15 +49,19 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
       appBar: AppBar(
         title: const Text('View Bus Detail'),
           elevation:15,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const MaterialApp(
+                  title: 'My Flutter App', home: BusList()))),
+        ),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: Column(
+      body:
+           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+
+
               const Text(
                 "Updated 5 min ago",
                 style: TextStyle(height: 5, fontSize: 18),
@@ -143,15 +148,17 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
                       itemBuilder: ((context, index) {
                         final item = busList[index];
                         return ListTile(
-                          textColor: Colors.white,
+                          textColor: Colors.black,
                           title: item.buildTime(context),
                           subtitle: item.buildBusNo(context),
                         );
                       }))),
             ],
           ),
-        ),
-      ),
+
+
+
+
     );
   }
 }
