@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:project/screens/viewBusDetail.dart';
 import 'package:project/services/bus_service.dart';
+import 'package:project/screens/dashboard.dart';
 
 class UpdateBus extends StatelessWidget {
   const UpdateBus({super.key});
@@ -15,8 +16,15 @@ class UpdateBus extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(appTitle),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const MaterialApp(
+                    title: 'My Flutter App', home: Dashboard()))),
+          ),
         ),
         body: const UpdateBusForm(),
+
       ),
     );
   }

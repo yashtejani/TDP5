@@ -31,7 +31,14 @@ class _AdminState extends State {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Admin'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const MaterialApp(
+                    title: 'My Flutter App', home: AdminLogin()))),
+          ),
         ),
+
         body: Column(
           children: <Widget>[
             const SizedBox(

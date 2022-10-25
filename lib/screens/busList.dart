@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project/screens/homeScreen.dart';
 import 'package:sizer/sizer.dart';
 import '../core/res/color.dart';
 import 'package:project/screens/viewBusDetail.dart';
@@ -15,6 +16,12 @@ class BusList extends StatelessWidget {
       appBar: AppBar(
         title: const Text('BusList'),
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>  MaterialApp(
+                  title: 'My Flutter App', home: HomeScreen()))),
+        ),
       ),
       extendBody: true,
       body: _buildBody(),
@@ -71,6 +78,7 @@ class BusList extends StatelessWidget {
               ]),
         ),
         const Spacer(),
+
         InkWell(
           onTap: () {},
           child: Text(

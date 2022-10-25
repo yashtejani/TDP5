@@ -18,7 +18,8 @@ class Dashboard extends StatelessWidget {
         appBar: AppBar(
           title: Text("Dashboard"),
           elevation: 0,
-          leading: Padding(
+          leading:
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Container(
               width: 50,
@@ -47,7 +48,7 @@ class Dashboard extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const SearchBar(),
+            //const SearchBar(),
             const SizedBox(
               height: 20,
             ),
