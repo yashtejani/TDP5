@@ -47,10 +47,7 @@ class Dashboard extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const SearchBar(),
-            const SizedBox(
-              height: 20,
-            ),
+         
             /* WidgetButton(
               title: "Journey Planner",
               color: Colors.blue,
