@@ -1,9 +1,0 @@
-{
-    "apps": [
-        {
-            "name": "TDP5",
-            "script": "npm",
-            "args" : "start"
-        }
-    ]
-}
