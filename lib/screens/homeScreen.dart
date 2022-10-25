@@ -5,6 +5,7 @@ import 'package:project/screens/busList.dart';
 import 'package:project/screens/dashboard.dart';
 import 'package:project/screens/groundStaffLogin.dart';
 import 'package:project/screens/journey_planner.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -35,46 +36,83 @@ class _HomeState extends State {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Replacement service'),
-      ),
-      body: pageList[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+
+    return CupertinoTabScaffold(
+
+      tabBar: CupertinoTabBar(
+
         items: const [
+
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+
+            icon: Icon(CupertinoIcons.home),
+
             label: 'Home',
-            backgroundColor: Colors.blue,
+
           ),
+
           BottomNavigationBarItem(
+
             icon: Icon(Icons.directions_walk),
-            label: 'Journey planner',
-            backgroundColor: Colors.blue,
+
+            label: 'Journey Planner',
+
           ),
+
           BottomNavigationBarItem(
+
             icon: Icon(Icons.dashboard),
+
             label: 'Dashboard',
-            backgroundColor: Colors.blue,
+
           ),
           BottomNavigationBarItem(
+
             icon: Icon(Icons.computer),
-            label: 'Admin Login',
-            backgroundColor: Colors.blue,
-          )
 
+            label: 'Admin',
+
+          ),
         ],
-        currentIndex: currentIndex,
-        onTap: onTabTapped, // this will be set when a new tab is tapped
-        selectedItemColor: Colors.blue,
-      ),
-    );
-  }
 
-  void onTabTapped(int index) {
-    setState(() {
-      currentIndex = index;
-    });
+      ),
+
+      tabBuilder: (BuildContext context, int index) {
+
+        return CupertinoTabView(
+
+          builder: (BuildContext context) {
+
+            if (index == 0 ){
+              return const CupertinoPageScaffold(
+
+                child: GroundStaffLogin(),
+
+              );
+            }
+            else if (index ==1 ){
+              return CupertinoPageScaffold(
+                child: JourneyPlanner(),
+              );
+            }
+            else if (index ==2){
+              return const CupertinoPageScaffold(
+                child: Dashboard(),
+              );
+            }
+            else {
+              return const CupertinoPageScaffold(
+                child: Admin(),
+              );
+            }
+
+          },
+
+        );
+
+      },
+
+    );
+
   }
 }
