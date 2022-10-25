@@ -191,10 +191,6 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                         ),
                       );
                       //TODO : Navigate to view bus details of the selected bus
-                      // return MaterialApp(
-                      //   title: 'View Bus Detail',
-                      //   home: ViewBusDetail(),
-                      // );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

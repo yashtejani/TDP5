@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project/mock/mockBusDetailList.dart';
+import 'package:project/screens/updateBusDetails.dart';
 import 'dart:developer';
 import '../core/res/color.dart';
 
 import '../model/bus_detail_list_item.dart';
 import '../services/bus_service.dart';
+import '../widgets/screen_display.dart';
 
 class ViewBusDetail extends StatefulWidget {
   const ViewBusDetail({Key? key}) : super(key: key);
@@ -57,6 +59,17 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
               const Text(
                 "Updated 5 min ago",
                 style: TextStyle(height: 5, fontSize: 18),
+              ),
+              WidgetButton(
+                title: "Update",
+                color: Colors.blue,
+                icon: Icons.update,
+                screen: UpdateBus(),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MaterialApp(
+                          title: 'Bus replacing train', home: UpdateBus())));
+                },
               ),
               ClipRRect(
                 borderRadius: const BorderRadius.only(
