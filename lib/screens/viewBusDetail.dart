@@ -60,16 +60,23 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
                 "Updated 5 min ago",
                 style: TextStyle(height: 5, fontSize: 18),
               ),
-              WidgetButton(
-                title: "Update",
-                color: Colors.blue,
-                icon: Icons.update,
-                screen: UpdateBus(),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MaterialApp(
-                          title: 'Bus replacing train', home: UpdateBus())));
-                },
+              Container(
+                alignment: Alignment.topRight,
+                padding: const EdgeInsets.all(20),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MaterialApp(
+                            title: 'Bus replacing train', home: UpdateBus())));
+                  },
+                  icon: const Icon(Icons.update), //icon data for elevated button
+                  label: const Text("Update"), //label text
+                  style: ElevatedButton.styleFrom(
+                    
+                      primary:
+                          Colors.green //elevated btton background color
+                      ),
+                ),
               ),
               ClipRRect(
                 borderRadius: const BorderRadius.only(
