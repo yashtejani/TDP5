@@ -3,7 +3,6 @@ import 'package:project/screens/addStaff.dart';
 import 'package:project/screens/addTimeSchedule.dart';
 import '../widgets/circle_gradient_icon.dart';
 import '../widgets/screen_display.dart';
-import '../widgets/searchbar.dart';
 import 'package:project/screens/adminLogin.dart';
 
 import 'package:flutter/src/material/bottom_navigation_bar.dart';
@@ -38,14 +37,10 @@ class _AdminState extends State {
             const SizedBox(
               height: 20,
             ),
-            const SearchBar(),
-            const SizedBox(
-              height: 20,
-            ),
             WidgetButton(
               title: "Add Staff",
               color: Colors.blue,
-              icon: Icons.list,
+              icon: Icons.person_add,
               screen: AddStaff(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -59,7 +54,7 @@ class _AdminState extends State {
             WidgetButton(
               title: "Time Schedule",
               color: Colors.blue,
-              icon: Icons.list,
+              icon: Icons.add,
               screen: TimeSchedule(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
