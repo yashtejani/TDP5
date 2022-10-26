@@ -116,18 +116,7 @@ class Dashboard extends StatelessWidget {
                         title: 'Bus replacing train', home: UpdateBus())));
               },
             ),
-            WidgetButton(
-              title: "Download Report",
-              color: Colors.green,
 
-              icon: Icons.library_books_sharp,
-              screen: JourneyPlanner(),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MaterialApp(
-                        title: 'Bus replacing train', home: GenerateReport())));
-              },
-            ),
             WidgetButton(
               title: "Notifications",
               color: Colors.pink,

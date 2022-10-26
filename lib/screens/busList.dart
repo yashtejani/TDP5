@@ -136,6 +136,7 @@ class _ViewBusDetailState extends State<BusListDetail1> {
         occupied = val['bus_info']['occupied_seats'];
         seats = seats + (capacity - occupied).toString();
         route = route + val['bus_info']['route'].toString();
+        print(route);
       }
     });
     print("AA");
