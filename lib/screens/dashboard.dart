@@ -17,6 +17,15 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          titleSpacing: 00.0,
+          centerTitle: true,
+          toolbarHeight: 70,
+          toolbarOpacity: 0.8,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(25),
+                bottomLeft: Radius.circular(25)),
+          ),
           title: Text("Dashboard"),
           elevation: 15,
           leading:
