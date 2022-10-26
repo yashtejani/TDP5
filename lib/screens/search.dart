@@ -17,7 +17,7 @@ class JourneyPlanner extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Journey planner'),
+          title: const Text('Search'),
         ),
         body: Column(
           children: <Widget>[
