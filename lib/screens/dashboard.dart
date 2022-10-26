@@ -117,7 +117,7 @@ class Dashboard extends StatelessWidget {
               },
             ),
             WidgetButton(
-              title: "View Report",
+              title: "Download Report",
               color: Colors.green,
 
               icon: Icons.library_books_sharp,
