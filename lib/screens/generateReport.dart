@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/mock/mock_bus_list.dart';
 import 'package:project/screens/dashboard.dart';
 import '../model/bus_list_item.dart';
+import 'admin.dart';
 
 class GenerateReport extends StatelessWidget {
   final List<BusListItem> busList = MockBusList.FetchAny();
@@ -32,7 +33,7 @@ class GenerateReport extends StatelessWidget {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const MaterialApp(
-                    title: 'My Flutter App', home: Dashboard()))),
+                    title: 'My Flutter App', home: Admin()))),
         )),
         body: Column(
           children: <Widget>[

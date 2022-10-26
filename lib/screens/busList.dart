@@ -265,7 +265,7 @@ class BusListDetail1 extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: const Text(
-                    "Available Seats - 5",
+                    "Available Seats - 22",
                     style: TextStyle(
                       color: Colors.red,
                     ),

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:project/screens/addRoute.dart';
 import 'package:project/screens/addStaff.dart';
 import 'package:project/screens/addTimeSchedule.dart';
+import '../journey_planner.dart';
 import '../widgets/circle_gradient_icon.dart';
 import '../widgets/screen_display.dart';
 import 'package:project/screens/adminLogin.dart';
 
 import 'package:flutter/src/material/bottom_navigation_bar.dart';
+
+import 'generateReport.dart';
 
 class Admin extends StatelessWidget {
   const Admin({super.key});
@@ -96,6 +99,18 @@ class _AdminState extends State {
             ),
             const SizedBox(
               height: 20,
+            ),
+            WidgetButton(
+              title: "Download Report",
+              color: Colors.green,
+
+              icon: Icons.library_books_sharp,
+              screen: GenerateReport(),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MaterialApp(
+                        title: 'Bus replacing train', home: GenerateReport())));
+              },
             ),
           ],
         ));
