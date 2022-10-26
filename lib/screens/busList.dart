@@ -23,16 +23,14 @@ class BusList extends StatelessWidget {
               bottomRight: Radius.circular(25),
               bottomLeft: Radius.circular(25)),
         ),
-
-
         shadowColor: Colors.blueAccent,
         title: const Text('Bus List'),
         elevation: 15,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) =>  MaterialApp(
-                  title: 'My Flutter App', home: HomeScreen()))),
+              builder: (context) =>
+                  MaterialApp(title: 'My Flutter App', home: HomeScreen()))),
         ),
       ),
       extendBody: true,
@@ -93,7 +91,6 @@ class BusList extends StatelessWidget {
               ]),
         ),
         const Spacer(),
-
         InkWell(
           onTap: () {},
           child: Text(
@@ -177,11 +174,8 @@ class BusListDetail1 extends StatelessWidget {
                                   behavior: SnackBarBehavior.floating,
                                   backgroundColor: Colors.green,
                                   elevation: 6,
-
-                                  content:
-                                  Text('Arrival Time updated'),
+                                  content: Text('Arrival Time updated'),
                                   margin: EdgeInsets.all(60),
-
                                 ),
                               );
                             } else {
@@ -190,8 +184,8 @@ class BusListDetail1 extends StatelessWidget {
                                   content: Text('Error Occured'),
                                   backgroundColor: Colors.red,
                                   margin: EdgeInsets.all(60),
+                                  behavior: SnackBarBehavior.floating,
                                   elevation: 6,
-
                                 ),
                               );
                             }
@@ -227,7 +221,6 @@ class BusListDetail1 extends StatelessWidget {
                                   backgroundColor: Colors.green,
                                   margin: EdgeInsets.all(60),
                                   behavior: SnackBarBehavior.floating,
-
                                   elevation: 6,
                                 ),
                               );
@@ -236,6 +229,9 @@ class BusListDetail1 extends StatelessWidget {
                                 const SnackBar(
                                   content: Text('Error Occured'),
                                   backgroundColor: Colors.red,
+                                  margin: EdgeInsets.all(60),
+                                  behavior: SnackBarBehavior.floating,
+                                  elevation: 6,
                                 ),
                               );
                             }
@@ -254,7 +250,6 @@ class BusListDetail1 extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white))),
                   ],
-                  
                 ),
                 const SizedBox(
                   height: 10,

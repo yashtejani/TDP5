@@ -55,7 +55,7 @@ class _AdminState extends State {
             ),
             WidgetButton(
               title: "Add Staff",
-              color: Colors.blue,
+              color: Colors.green,
               icon: Icons.person_add,
               screen: AddStaff(),
               onTap: () {
@@ -69,8 +69,8 @@ class _AdminState extends State {
             ),
             WidgetButton(
               title: "Add route",
-              color: Colors.blue,
-              icon: Icons.add,
+              color: Colors.green,
+              icon: Icons.route,
               screen: AddRoute(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -83,7 +83,7 @@ class _AdminState extends State {
             ),
             WidgetButton(
               title: "Time Schedule",
-              color: Colors.blue,
+              color: Colors.green,
               icon: Icons.add,
               screen: TimeSchedule(),
               onTap: () {
