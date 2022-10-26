@@ -29,10 +29,10 @@ var busInfoSchema = new Schema({
 		type: String,
 		required: true,
 	}],
-	departure_time: [{
+	departure_time: {
 		type: String,
 		required: true,
-	}],
+	},
 	occupied_seats: {
 		type: Number,
 		required: true,

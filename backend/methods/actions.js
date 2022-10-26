@@ -91,7 +91,8 @@ var functions = {
 	},
 	busUpdateDetails: async function (req, res) {
 		try {
-			let busDetails = await BusInfo.updateOne({busId: req.body.busId}, {occupied_seats: req.body.occupied_seats});
+		       console.log('fhfjffjfjy'+req.body.arrival_time);
+			let busDetails = await BusInfo.updateOne({busId: req.body.busId}, {$set: {occupied_seats: req.body.occupied_seats, arrival_time: req.body.arrival_time, departure_time: req.body.departure_time}});
 			if (busDetails) {
 				return res.json({success: true, busDetails});
 			} else {
