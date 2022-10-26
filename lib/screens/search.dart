@@ -59,7 +59,7 @@ class JourneyPlanner extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ViewBusDetail()),
+                                      builder: (context) => ViewBusDetail(bId: 1,)),
                                 );
                               }),
                             ),
