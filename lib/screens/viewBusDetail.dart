@@ -18,13 +18,13 @@ class ViewBusDetail extends StatefulWidget {
 
 class _ViewBusDetailState extends State<ViewBusDetail> {
   final List<BustDetailListItem> busList = MockBusDetailList.FetchAny();
-  String arriveTime = "Arrived at : 11:30  ";
-  String departTime = "Depart at  : 15:30 ";
-  String busId = "Bus No : ";
+  String arriveTime = "Arrived at  ";
+  String departTime = "Depart at ";
+  String busId = "Bus No ";
   var capacity;
   var occupied;
   var bid = 1;
-  String seats = "Available Seats : ";
+  String seats = "Available Seats ";
   @override
   void initState() {
     super.initState();
@@ -33,11 +33,15 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
 
   void fetchBusDetails(bid) async {
     BusService().getBusDetails(bid).then((val) {
+      print(val);
       if (val['success']) {
         busId = busId + val['bus_info']['busId'].toString();
+        print(busId);
         capacity = val['bus_info']['capacity'];
         occupied = val['bus_info']['occupied_seats'];
         seats = seats + (capacity - occupied).toString();
+        arriveTime = arriveTime + val['bus_info']['arrival_time'];
+        departTime = departTime + val['bus_info']['departure_time'];
       }
     });
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
