@@ -60,7 +60,7 @@ class AddRoute extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Enter Routes eg, Richmond, Caulfield',
+                  hintText: 'Enter Stops eg, Richmond, Caulfield',
                 ),
               ),
             ),

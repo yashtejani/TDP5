@@ -70,7 +70,7 @@ class _AdminState extends State {
               height: 20,
             ),
             WidgetButton(
-              title: "Add route",
+              title: "Add Route",
               color: Colors.green,
               icon: Icons.route,
               screen: AddRoute(),
