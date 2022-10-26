@@ -92,7 +92,7 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
               icon: const Icon(Icons.update), //icon data for elevated button
               label: const Text("Update"), //label text
               style: ElevatedButton.styleFrom(
-                  primary: Colors.green //elevated btton background color
+                  primary: Colors.orange //elevated btton background color
                   ),
             ),
           ),
