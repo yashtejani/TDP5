@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/generateReport.dart';
 import 'package:project/screens/search.dart';
 import 'package:project/screens/notificationView.dart';
 import 'package:project/mock/mock_bus_list.dart';
@@ -111,7 +112,7 @@ class Dashboard extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train', home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: GenerateReport())));
               },
             ),
             WidgetButton(

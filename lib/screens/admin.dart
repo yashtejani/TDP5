@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/addRoute.dart';
 import 'package:project/screens/addStaff.dart';
 import 'package:project/screens/addTimeSchedule.dart';
 import '../widgets/circle_gradient_icon.dart';
@@ -38,7 +39,6 @@ class _AdminState extends State {
                     title: 'My Flutter App', home: AdminLogin()))),
           ),
         ),
-
         body: Column(
           children: <Widget>[
             const SizedBox(
@@ -53,6 +53,20 @@ class _AdminState extends State {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const MaterialApp(
                         title: 'Bus replacing train', home: AddStaff())));
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            WidgetButton(
+              title: "Add route",
+              color: Colors.blue,
+              icon: Icons.add,
+              screen: AddRoute(),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MaterialApp(
+                        title: 'Bus replacing train', home: AddRoute())));
               },
             ),
             const SizedBox(
