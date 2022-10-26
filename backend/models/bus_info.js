@@ -21,7 +21,7 @@ var busInfoSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	bus_route: [{
+	bus_stops: [{
 		type: String,
 		required: true,
 	}],
