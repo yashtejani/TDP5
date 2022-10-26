@@ -10,7 +10,8 @@ import '../services/bus_service.dart';
 import '../widgets/screen_display.dart';
 
 class ViewBusDetail extends StatefulWidget {
-  const ViewBusDetail({Key? key}) : super(key: key);
+  final int? bId;
+  const ViewBusDetail({Key? key, this.bId}) : super(key: key);
 
   @override
   _ViewBusDetailState createState() => _ViewBusDetailState();
@@ -24,16 +25,17 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
   String busId = "Bus No ";
   var capacity;
   var occupied;
-  var bid = 1;
   String seats = "Available Seats ";
   @override
   void initState() {
     super.initState();
-    fetchBusDetails(bid);
+    print(widget.bId);
+    fetchBusDetails(widget.bId);
   }
 
-  void fetchBusDetails(bid) async {
-    BusService().getBusDetails(bid).then((val) {
+  void fetchBusDetails(bId) async {
+    BusService().getBusDetails(bId).then((val) {
+      print(val);
       if (val['success']) {
         busId = busId + val['bus_info']['busId'].toString();
         capacity = val['bus_info']['capacity'];
@@ -44,6 +46,7 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
 
         var stopList = val['bus_info']['bus_stops'];
         var timeList = val['bus_info']['bus_times'];
+
         busList.clear();
         for (int i = 0; i < stopList.length; i++) {
           var a = new BustDetailListItem(timeList[i], stopList[i]);
