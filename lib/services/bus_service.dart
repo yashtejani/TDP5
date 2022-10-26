@@ -44,12 +44,14 @@ class BusService {
         if (seats > capacity) {
           seats = capacity;
         }
-        data = {"busId": busId, "occupied_seats": 5};
+        data = {"busId": busId, "occupied_seats": seats};
       } else if (action == "A") {
-        arrivalTime = DateFormat('HH:mm').format(DateTime.now());
+        print("A");
+        arrivalTime = DateFormat('HH:mm').format(DateTime.now()).toString();
         data = {"busId": busId, "arrival_time": arrivalTime};
+        print(data);
       } else if (action == "D") {
-        departureTime = DateFormat('HH:mm').format(DateTime.now());
+        departureTime = DateFormat('HH:mm').format(DateTime.now()).toString();
         data = {"busId": busId, "departure_time": departureTime};
       }
       var response = await http.post(Uri.parse(url),
