@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens/journey_planner.dart';
+import 'package:project/screens/search.dart';
 import 'package:project/screens/notificationView.dart';
 import 'package:project/mock/mock_bus_list.dart';
 import 'package:project/screens/updateBusDetails.dart';

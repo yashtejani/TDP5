@@ -4,7 +4,7 @@ import 'package:project/screens/adminLogin.dart';
 import 'package:project/screens/busList.dart';
 import 'package:project/screens/dashboard.dart';
 import 'package:project/screens/groundStaffLogin.dart';
-import 'package:project/screens/journey_planner.dart';
+import 'package:project/screens/search.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -53,9 +53,9 @@ class _HomeState extends State {
 
           BottomNavigationBarItem(
 
-            icon: Icon(Icons.directions_walk),
+            icon: Icon(Icons.search),
 
-            label: 'Journey Planner',
+            label: 'Search',
 
           ),
 

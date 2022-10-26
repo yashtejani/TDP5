@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/mock/mock_bus_list.dart';
 import 'package:project/screens/viewBusDetail.dart';
 import '../model/bus_list_item.dart';
+import '../widgets/searchbar.dart';
 
 class JourneyPlanner extends StatelessWidget {
   final List<BusListItem> busList = MockBusList.FetchAny();
@@ -21,26 +22,8 @@ class JourneyPlanner extends StatelessWidget {
         body: Column(
           children: <Widget>[
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Current location',
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Destination',
-                ),
-              ),
-            ),
-            ElevatedButton(
-                onPressed: () => {print(currentLocationController.text)},
-                child: const Text('Search', style: TextStyle(fontSize: 20.0))),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: SearchBar()),
             Expanded(
                 child: Container(
                     margin: const EdgeInsets.symmetric(
