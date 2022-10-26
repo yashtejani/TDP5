@@ -107,10 +107,41 @@ class BusList extends StatelessWidget {
   }
 }
 
-class BusListDetail1 extends StatelessWidget {
-  const BusListDetail1({
-    Key? key,
-  }) : super(key: key);
+class BusListDetail1 extends StatefulWidget {
+  const BusListDetail1({Key? key}) : super(key: key);
+
+  @override
+  _ViewBusDetailState createState() => _ViewBusDetailState();
+}
+
+class _ViewBusDetailState extends State<BusListDetail1> {
+  String arriveTime = "Arrived at  ";
+  String departTime = "Depart at ";
+  String busId = "Bus No ";
+  var capacity;
+  var occupied;
+  String route = "Route from ";
+  String seats = "Available Seats ";
+  @override
+  void initState() {
+    super.initState();
+    fetchBusDetails(1);
+  }
+
+  void fetchBusDetails(bId) async {
+    BusService().getBusDetails(1).then((val) {
+      print(val['bus_info']['occupied_seats']);
+      if (val['success']) {
+        capacity = val['bus_info']['capacity'];
+        occupied = val['bus_info']['occupied_seats'];
+        seats = seats + (capacity - occupied).toString();
+        route = route + val['bus_info']['route'].toString();
+      }
+    });
+    print("AA");
+    Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
+    print("WW");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +161,7 @@ class BusListDetail1 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Route 35 to Glenferrie Station",
+                  route,
                   style: TextStyle(
                     color: Colors.blueGrey[900],
                     fontWeight: FontWeight.bold,
@@ -264,12 +295,10 @@ class BusListDetail1 extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Text(
-                    "Available Seats - 22",
-                    style: TextStyle(
-                      color: Colors.red,
-                    ),
-                  ),
+                  child: Text(seats,
+                      style: TextStyle(
+                        color: Colors.lightGreen,
+                      )),
                 ),
               ],
             ),
@@ -294,6 +323,194 @@ class BusListDetail1 extends StatelessWidget {
     );
   }
 }
+
+// class BusListDetail1 extends StatefulWidget {
+//   const BusListDetail1({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.all(
+//         20,
+//       ),
+//       decoration: BoxDecoration(
+//         color: Colors.grey[100],
+//         borderRadius: BorderRadius.circular(15),
+//       ),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           SizedBox(
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Text(
+//                   "Route 35 to Glenferrie Station",
+//                   style: TextStyle(
+//                     color: Colors.blueGrey[900],
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 18,
+//                   ),
+//                   overflow: TextOverflow.ellipsis,
+//                   maxLines: 2,
+//                 ),
+//                 const SizedBox(
+//                   height: 10,
+//                 ),
+//                 Row(
+//                   children: [
+//                     Icon(
+//                       Icons.timelapse,
+//                       color: Colors.purple[300],
+//                     ),
+//                     const SizedBox(
+//                       width: 10,
+//                     ),
+//                     Text(
+//                       "Arriving in 10mins",
+//                       style: TextStyle(
+//                         color: Colors.greenAccent[600],
+//                         fontSize: 18,
+//                       ),
+//                     ),
+//                     const SizedBox(
+//                       width: 10,
+//                     ),
+//                     ElevatedButton(
+//                         onPressed: () {
+//                           // Validate returns true if the form is valid, or false otherwise.
+//                           BusService()
+//                               .updateBusDeatails(
+//                                   1, null, null, null, 1, null, "A")
+//                               .then((val) {
+//                             if (val['success']) {
+//                               print("Success");
+//                               ScaffoldMessenger.of(context).showSnackBar(
+//                                 const SnackBar(
+//                                   behavior: SnackBarBehavior.floating,
+//                                   backgroundColor: Colors.green,
+//                                   elevation: 6,
+//                                   content: Text('Arrival Time updated'),
+//                                   margin: EdgeInsets.all(60),
+//                                 ),
+//                               );
+//                             } else {
+//                               ScaffoldMessenger.of(context).showSnackBar(
+//                                 const SnackBar(
+//                                   content: Text('Error Occured'),
+//                                   backgroundColor: Colors.red,
+//                                   margin: EdgeInsets.all(60),
+//                                   behavior: SnackBarBehavior.floating,
+//                                   elevation: 6,
+//                                 ),
+//                               );
+//                             }
+//                             ;
+//                           });
+//                         },
+//                         style: ElevatedButton.styleFrom(
+//                           foregroundColor: Theme.of(context)
+//                               .colorScheme
+//                               .onSecondaryContainer,
+//                           backgroundColor: Colors.lightGreen,
+//                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+//                         child: const Text('Arrived',
+//                             style: TextStyle(
+//                                 fontSize: 11.0,
+//                                 fontWeight: FontWeight.bold,
+//                                 color: Colors.white))),
+//                     const SizedBox(
+//                       width: 10,
+//                     ),
+//                     ElevatedButton(
+//                         onPressed: () {
+//                           // Validate returns true if the form is valid, or false otherwise.
+//                           BusService()
+//                               .updateBusDeatails(
+//                                   1, null, null, null, null, 1, "D")
+//                               .then((val) {
+//                             if (val['success']) {
+//                               print("Success");
+//                               ScaffoldMessenger.of(context).showSnackBar(
+//                                 const SnackBar(
+//                                   content: Text('Departure Time updated'),
+//                                   backgroundColor: Colors.green,
+//                                   margin: EdgeInsets.all(60),
+//                                   behavior: SnackBarBehavior.floating,
+//                                   elevation: 6,
+//                                 ),
+//                               );
+//                             } else {
+//                               ScaffoldMessenger.of(context).showSnackBar(
+//                                 const SnackBar(
+//                                   content: Text('Error Occured'),
+//                                   backgroundColor: Colors.red,
+//                                   margin: EdgeInsets.all(60),
+//                                   behavior: SnackBarBehavior.floating,
+//                                   elevation: 6,
+//                                 ),
+//                               );
+//                             }
+//                             ;
+//                           });
+//                         },
+//                         style: ElevatedButton.styleFrom(
+//                           foregroundColor: Theme.of(context)
+//                               .colorScheme
+//                               .onSecondaryContainer,
+//                           backgroundColor: Colors.orangeAccent,
+//                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+//                         child: const Text('Departed',
+//                             style: TextStyle(
+//                                 fontSize: 11.0,
+//                                 fontWeight: FontWeight.bold,
+//                                 color: Colors.white))),
+//                   ],
+//                 ),
+//                 const SizedBox(
+//                   height: 10,
+//                 ),
+//                 Container(
+//                   padding: const EdgeInsets.symmetric(
+//                     vertical: 4,
+//                     horizontal: 8,
+//                   ),
+//                   decoration: BoxDecoration(
+//                     color: Colors.white,
+//                     borderRadius: BorderRadius.circular(5),
+//                   ),
+//                   child: const Text(
+//                     "Available Seats - 5",
+//                     style: TextStyle(
+//                       color: Colors.red,
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//           InkWell(
+//               onTap: () {
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                       builder: (context) => ViewBusDetail(
+//                             bId: 1,
+//                           )),
+//                 );
+//               },
+//               child: const Icon(
+//                 Icons.directions_bus_filled_outlined,
+//                 size: 60,
+//                 color: Colors.orange,
+//               ))
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class BusListDetail2 extends StatelessWidget {
   const BusListDetail2({
