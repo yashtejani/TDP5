@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/generateReport.dart';
 import 'package:project/screens/search.dart';
 import 'package:project/screens/notificationView.dart';
 import 'package:project/mock/mock_bus_list.dart';
@@ -16,6 +17,17 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          backgroundColor: Colors.green[600],
+
+          titleSpacing: 00.0,
+          centerTitle: true,
+          toolbarHeight: 70,
+          toolbarOpacity: 0.8,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(25),
+                bottomLeft: Radius.circular(25)),
+          ),
           title: Text("Dashboard"),
           elevation: 15,
           leading:
@@ -25,7 +37,6 @@ class Dashboard extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: const BoxDecoration(
-                color: Colors.blue,
                 shape: BoxShape.circle,
               ),
               /*
@@ -59,6 +70,9 @@ class Dashboard extends StatelessWidget {
                         title: 'Bus replacing train', home: JourneyPlanner())));
               },
             ), */
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(140),
@@ -93,7 +107,7 @@ class Dashboard extends StatelessWidget {
 
             WidgetButton(
               title: "Update Bus Information",
-              color: Colors.blue,
+              color: Colors.orange,
               icon: Icons.departure_board_outlined,
               screen: UpdateBus(),
               onTap: () {
@@ -103,20 +117,20 @@ class Dashboard extends StatelessWidget {
               },
             ),
             WidgetButton(
-              title: "View Report",
-              color: Colors.blue,
+              title: "Download Report",
+              color: Colors.green,
 
               icon: Icons.library_books_sharp,
               screen: JourneyPlanner(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MaterialApp(
-                        title: 'Bus replacing train', home: JourneyPlanner())));
+                        title: 'Bus replacing train', home: GenerateReport())));
               },
             ),
             WidgetButton(
               title: "Notifications",
-              color: Colors.blue,
+              color: Colors.pink,
 
               icon: Icons.notification_add,
               screen: NotificationView(),

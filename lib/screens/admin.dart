@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/addRoute.dart';
 import 'package:project/screens/addStaff.dart';
 import 'package:project/screens/addTimeSchedule.dart';
 import '../widgets/circle_gradient_icon.dart';
@@ -30,6 +31,17 @@ class _AdminState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[600],
+
+          titleSpacing: 00.0,
+          centerTitle: true,
+          toolbarHeight: 70,
+          toolbarOpacity: 0.8,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(25),
+                bottomLeft: Radius.circular(25)),
+          ),
           title: const Text('Admin'),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -38,7 +50,6 @@ class _AdminState extends State {
                     title: 'My Flutter App', home: AdminLogin()))),
           ),
         ),
-
         body: Column(
           children: <Widget>[
             const SizedBox(
@@ -46,7 +57,7 @@ class _AdminState extends State {
             ),
             WidgetButton(
               title: "Add Staff",
-              color: Colors.blue,
+              color: Colors.green,
               icon: Icons.person_add,
               screen: AddStaff(),
               onTap: () {
@@ -59,8 +70,22 @@ class _AdminState extends State {
               height: 20,
             ),
             WidgetButton(
+              title: "Add Route",
+              color: Colors.green,
+              icon: Icons.route,
+              screen: AddRoute(),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MaterialApp(
+                        title: 'Bus replacing train', home: AddRoute())));
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            WidgetButton(
               title: "Time Schedule",
-              color: Colors.blue,
+              color: Colors.green,
               icon: Icons.add,
               screen: TimeSchedule(),
               onTap: () {

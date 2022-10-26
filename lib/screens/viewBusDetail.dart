@@ -61,6 +61,17 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green[600],
+
+        titleSpacing: 00.0,
+        centerTitle: true,
+        toolbarHeight: 70,
+        toolbarOpacity: 0.8,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(25),
+              bottomLeft: Radius.circular(25)),
+        ),
         title: const Text('View Bus Detail'),
         elevation: 15,
         leading: IconButton(
@@ -72,7 +83,9 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+
         children: <Widget>[
+
           const Text(
             "Updated 5 min ago",
             style: TextStyle(height: 5, fontSize: 18),
@@ -89,7 +102,7 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
               icon: const Icon(Icons.update), //icon data for elevated button
               label: const Text("Update"), //label text
               style: ElevatedButton.styleFrom(
-                  primary: Colors.green //elevated btton background color
+                  primary: Colors.orange //elevated btton background color
                   ),
             ),
           ),
@@ -118,7 +131,7 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(5),
-            decoration: const BoxDecoration(color: Colors.orange),
+            decoration: const BoxDecoration(color: Colors.green),
             child: Text(departTime,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
@@ -130,25 +143,26 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(5),
-            decoration: const BoxDecoration(color: Colors.yellow),
+            decoration: const BoxDecoration(
+                color: Colors.lightGreen),
             child: Text(busId,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                   height: 1,
-                  color: Colors.black,
+                  color: Colors.white,
                 )),
           ),
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(5),
-            decoration: const BoxDecoration(color: Colors.yellow),
+            decoration: const BoxDecoration(color: Colors.lightGreen),
             child: Text(seats,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                   height: 1,
-                  color: Colors.black,
+                  color: Colors.white,
                 )),
           ),
           Expanded(
@@ -171,6 +185,9 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
                           ),
                         );
                       }))))
+
+
+
         ],
       ),
     );

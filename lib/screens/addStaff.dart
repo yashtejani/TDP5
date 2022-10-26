@@ -72,7 +72,7 @@ class AddStaffState extends State {
     final addButon = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(20.0),
-      color: Colors.blue,
+      color: Colors.green,
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.fromLTRB(50.0, 15.0, 50.0, 15.0),
@@ -95,6 +95,17 @@ class AddStaffState extends State {
     );
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green[600],
+
+        titleSpacing: 00.0,
+        centerTitle: true,
+        toolbarHeight: 70,
+        toolbarOpacity: 0.8,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(25),
+              bottomLeft: Radius.circular(25)),
+        ),
         title: const Text('Add Staff'),
         automaticallyImplyLeading: false,
         // ignore: unnecessary_new

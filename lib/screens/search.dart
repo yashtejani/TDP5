@@ -17,10 +17,24 @@ class JourneyPlanner extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[600],
+
+          titleSpacing: 00.0,
+          centerTitle: true,
+          toolbarHeight: 70,
+          toolbarOpacity: 0.8,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(25),
+                bottomLeft: Radius.circular(25)),
+          ),
           title: const Text('Search'),
         ),
         body: Column(
           children: <Widget>[
+            const SizedBox(
+              height: 15,
+            ),
             const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: SearchBar()),
@@ -45,7 +59,7 @@ class JourneyPlanner extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ViewBusDetail()),
+                                      builder: (context) => ViewBusDetail(bId: 1,)),
                                 );
                               }),
                             ),
