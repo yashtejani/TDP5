@@ -16,6 +16,8 @@ class UpdateBus extends StatelessWidget {
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[600],
+
           titleSpacing: 00.0,
           centerTitle: true,
           toolbarHeight: 70,
@@ -194,6 +196,9 @@ class UpdateBusFormState extends State<UpdateBusForm> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: ElevatedButton(
+    style: ElevatedButton.styleFrom(
+    primary: Colors.green //elevated btton background color
+    ),
                 onPressed: () {
                   // Validate returns true if the form is valid, or false otherwise.
                   BusService()

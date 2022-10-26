@@ -17,6 +17,8 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          backgroundColor: Colors.green[600],
+
           titleSpacing: 00.0,
           centerTitle: true,
           toolbarHeight: 70,
@@ -35,7 +37,6 @@ class Dashboard extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: const BoxDecoration(
-                color: Colors.blue,
                 shape: BoxShape.circle,
               ),
               /*
@@ -69,6 +70,9 @@ class Dashboard extends StatelessWidget {
                         title: 'Bus replacing train', home: JourneyPlanner())));
               },
             ), */
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(140),
@@ -103,7 +107,7 @@ class Dashboard extends StatelessWidget {
 
             WidgetButton(
               title: "Update Bus Information",
-              color: Colors.green,
+              color: Colors.orange,
               icon: Icons.departure_board_outlined,
               screen: UpdateBus(),
               onTap: () {
@@ -126,7 +130,7 @@ class Dashboard extends StatelessWidget {
             ),
             WidgetButton(
               title: "Notifications",
-              color: Colors.green,
+              color: Colors.pink,
 
               icon: Icons.notification_add,
               screen: NotificationView(),

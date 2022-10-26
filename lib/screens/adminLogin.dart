@@ -15,6 +15,8 @@ class AdminLogin extends StatelessWidget {
 
           child: Scaffold(
               appBar: AppBar(
+                backgroundColor: Colors.green[600],
+
                 titleSpacing: 00.0,
                 centerTitle: true,
                 toolbarHeight: 70,
