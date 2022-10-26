@@ -17,7 +17,8 @@ class ViewBusDetail extends StatefulWidget {
 }
 
 class _ViewBusDetailState extends State<ViewBusDetail> {
-  final List<BustDetailListItem> busList = MockBusDetailList.FetchAny();
+  final List<BustDetailListItem> busList =
+      List.filled(5, BustDetailListItem('', ''), growable: true);
   String arriveTime = "Arrived at  ";
   String departTime = "Depart at ";
   String busId = "Bus No ";
@@ -33,15 +34,21 @@ class _ViewBusDetailState extends State<ViewBusDetail> {
 
   void fetchBusDetails(bid) async {
     BusService().getBusDetails(bid).then((val) {
-      print(val);
       if (val['success']) {
         busId = busId + val['bus_info']['busId'].toString();
-        print(busId);
         capacity = val['bus_info']['capacity'];
         occupied = val['bus_info']['occupied_seats'];
         seats = seats + (capacity - occupied).toString();
         arriveTime = arriveTime + val['bus_info']['arrival_time'];
         departTime = departTime + val['bus_info']['departure_time'];
+
+        var stopList = val['bus_info']['bus_stops'];
+        var timeList = val['bus_info']['bus_times'];
+        busList.clear();
+        for (int i = 0; i < stopList.length; i++) {
+          var a = new BustDetailListItem(timeList[i], stopList[i]);
+          busList.add(a);
+        }
       }
     });
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
