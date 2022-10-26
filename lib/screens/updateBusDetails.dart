@@ -21,11 +21,13 @@ class UpdateBus extends StatelessWidget {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const MaterialApp(
-                    title: 'My Flutter App', home: ViewBusDetail()))),
+                    title: 'My Flutter App',
+                    home: ViewBusDetail(
+                      bId: 1,
+                    )))),
           ),
         ),
         body: const UpdateBusForm(),
-
       ),
     );
   }
@@ -199,7 +201,6 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                           backgroundColor: Colors.green,
                           margin: EdgeInsets.all(60),
                           behavior: SnackBarBehavior.floating,
-
                           elevation: 6,
                         ),
                       );
@@ -211,7 +212,6 @@ class UpdateBusFormState extends State<UpdateBusForm> {
                           backgroundColor: Colors.red,
                           margin: EdgeInsets.all(60),
                           behavior: SnackBarBehavior.floating,
-
                           elevation: 6,
                         ),
                       );

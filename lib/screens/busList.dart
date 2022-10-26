@@ -268,7 +268,10 @@ class BusListDetail1 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ViewBusDetail()),
+                  MaterialPageRoute(
+                      builder: (context) => ViewBusDetail(
+                            bId: 1,
+                          )),
                 );
               },
               child: const Icon(
@@ -393,7 +396,10 @@ class BusListDetail2 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ViewBusDetail()),
+                  MaterialPageRoute(
+                      builder: (context) => ViewBusDetail(
+                            bId: 2,
+                          )),
                 );
               },
               child: const Icon(
@@ -518,7 +524,10 @@ class BusListDetail3 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ViewBusDetail()),
+                  MaterialPageRoute(
+                      builder: (context) => ViewBusDetail(
+                            bId: 3,
+                          )),
                 );
               },
               child: const Icon(
